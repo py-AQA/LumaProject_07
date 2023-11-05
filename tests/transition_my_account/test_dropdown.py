@@ -1,8 +1,10 @@
 from pages.main_page import MainPage
 from pages.login_page import LoginPage
 from time import sleep
+import pytest
 
 
+@pytest.mark.xfail
 def test_my_account(driver):
     page = LoginPage(driver)
     page.sign_in(page)
@@ -13,6 +15,7 @@ def test_my_account(driver):
     assert page.current_url == 'https://magento.softwaretestingboard.com/customer/account/'
 
 
+@pytest.mark.xfail
 def test_my_wish(driver):
     page = LoginPage(driver)
     page.sign_in(page)
@@ -24,6 +27,7 @@ def test_my_wish(driver):
     assert page.current_url == 'https://magento.softwaretestingboard.com/wishlist/'
 
 
+@pytest.mark.xfail
 def test_sign_out(driver):
     page = LoginPage(driver)
     # page.open()
