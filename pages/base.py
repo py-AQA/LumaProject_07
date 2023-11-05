@@ -38,6 +38,12 @@ class Base:
         except TimeoutException as e:
             print(f"Timeout: Element located by {locator} not visible after {timeout}s")
 
+    def is_not_visible(self, locator: (str, str), timeout: int = 15) -> WebElement:
+        try:
+            return wait(self.driver, timeout).until(EC.invisibility_of_element_located(locator))
+        except TimeoutException as e:
+            print(f"Timeout: Element located by {locator} still visible after {timeout}s")
+
     def is_clickable(self, locator: tuple[str, str], timeout: int = 15) -> WebElement:
         try:
             return wait(self.driver, timeout).until(EC.element_to_be_clickable(locator))
