@@ -33,11 +33,13 @@ def pytest_addoption(parser):
 
 
 def pytest_configure(config):
-    print(">>>")
+    # print(">>>")
+    pass
 
 
 def pytest_unconfigure(config):
-    print("<<<")
+    pass
+    # print("<<<")
 
 
 def pytest_generate_tests(metafunc):
@@ -115,10 +117,10 @@ def driver_fixture(request, browser, place, options):
             driver = webdriver.Edge(options=options)
         else:
             driver = webdriver.Remote(command_executor=GRID_URL, options=options)
-    print('>>>>>>>>>>>>>>>>>>>>>>init driver')
+    # print('>>>>>>>>>>>>>>>>>>>>>>init driver')
     request.cls.driver = driver
     yield
-    print('>>>>>>>>>>>>>>>>>>>>>>quit driver')
+    # print('>>>>>>>>>>>>>>>>>>>>>>quit driver')
     driver.quit()
 
 
