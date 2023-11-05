@@ -8,36 +8,44 @@ class AnonShippigAddressAddPage(Page):
     URL = "https://magento.softwaretestingboard.com/checkout/#shipping"
     URL_DONE = "https://magento.softwaretestingboard.com/checkout/#payment"
 
-    FIRST_NAME = (By.CSS_SELECTOR, "input#firstname")
-    LAST_NAME = (By.CSS_SELECTOR, "input#lastname")
+    EMAIL = (By.CSS_SELECTOR,"input#customer-email")
 
-    COMPANY = (By.CSS_SELECTOR, "input#company")
-    PHONE = (By.CSS_SELECTOR, "input#telephone")
+    LD_SHIPPING_ADDRESS = (By.CSS_SELECTOR, "li.checkout-shipping-address")
 
-    STREET_1 = (By.CSS_SELECTOR, "input#street_1")
-    STREET_2 = (By.CSS_SELECTOR, "input#street_2")
-    STREET_3 = (By.CSS_SELECTOR, "input#street_3")
+    FIRST_NAME = (By.CSS_SELECTOR, 'input[name="firstname"]')
+    LAST_NAME = (By.CSS_SELECTOR, 'input[name="lastname"]')
+    COMPANY = (By.CSS_SELECTOR, 'input[name="lastname"]')
+    STREET_1 = (By.CSS_SELECTOR, 'input[name="street[0]"]')
+    STREET_2 = (By.CSS_SELECTOR, 'input[name="street[1]"]')
+    STREET_3 = (By.CSS_SELECTOR, 'input[name="street[2]"]')
+    CITY = (By.CSS_SELECTOR, 'input[name="city"]')
+    # STATE and REGION share same place
+    # select STATE is for states with regions
+    STATE = (By.CSS_SELECTOR, 'select[name="region_id"]')
+    # input REGION if for staes with regions
+    REGION = (By.CSS_SELECTOR, 'input[name="region"]')
+    ZIP = (By.CSS_SELECTOR, 'input[name="postcode"]')
+    COUNTRY = (By.CSS_SELECTOR, 'select[name="country_id"]')
+    PHONE = (By.CSS_SELECTOR, 'input[name="telephone"]')
 
-    CITY = (By.CSS_SELECTOR, "input#city")
-    # STATE and REGINO share same plcae
-    # select STATE is US only
-    STATE = (By.CSS_SELECTOR, "select#region_id")
-    # input REGION if for non US countries
-    REGION = (By.CSS_SELECTOR, "input#region")
-    ZIP = (By.CSS_SELECTOR, "input#zip")
-    COUNTRY = (By.CSS_SELECTOR, "select#country")
+    BUTTON_NEXT = (By.CSS_SELECTOR, "button.continue")
 
-    SET_BILLING = (By.CSS_SELECTOR, "input#primary_billing")
-    SET_SHIPPING = (By.CSS_SELECTOR, "input#primary_shipping")
+    LD_PAYMENT_METHOD = (By.CSS_SELECTOR, "li.checkout-payment-method")
 
-    SAVE = (By.CSS_SELECTOR, "button.save")
-
-    SUCCESS = "You saved the address."
+    # SUCCESS = "You saved the address."
 
     def __init__(self, driver, url=URL):
         super().__init__(driver)
         # переходим к указанной или URL странице
         self.url = url
+
+    @property
+    def email(self):
+        return self.is_visible(self.EMAIL)
+
+    @email.setter
+    def email(self, val: str):
+        self.clear_and_send_keys(self.email, val)
 
     @property
     def first_name(self):
@@ -57,8 +65,7 @@ class AnonShippigAddressAddPage(Page):
 
     @property
     def company(self):
-        return self.is_visible(self.COMPANY)\
-
+        return self.is_visible(self.COMPANY)
 
     @company.setter
     def company(self, val: str):
@@ -136,12 +143,6 @@ class AnonShippigAddressAddPage(Page):
     def country(self, val):
         Select(self.is_clickable(self.COUNTRY)).select_by_value(val)
 
-    @property
-    def set_billing(self):
-        return self.is_clickable(self.SET_BILLING)
-    @property
-    def set_shpping(self):
-        return self.is_clickable(self.SET_SHIPPING)
-
-    def save(self):
-        return self.is_clickable(self.SAVE)
+    def button_next(self):
+        self.is_not_visible(self.LD_PAYMENT_METHOD)
+        return self.is_clickable(self.BUTTON_NEXT)
