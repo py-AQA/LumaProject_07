@@ -30,6 +30,8 @@ class RegistrationPage(BasePage):
 
     def create_account(self, page, random_first_name, random_last_name, random_email, random_password):
         page.open()
+        # todo sometimes fails with 'NoneType' object has no attribute 'send_keys' for
+        #  page.first_name().send_keys(random_first_name)
         page.first_name().send_keys(random_first_name)
         page.last_name().send_keys(random_last_name)
         page.email().send_keys(random_email)
