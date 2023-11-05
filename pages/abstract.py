@@ -19,6 +19,7 @@ class Demo(Base):
         return self.is_visible(self.LOCATOR)
 
     def ck_css(self):
+        # todo ffox AssertionError
         assert self.demo.value_of_css_property("background-color") == self.BACKGROUND_COLOR
 
     def ck_text(self):

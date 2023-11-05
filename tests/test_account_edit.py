@@ -22,6 +22,7 @@ class TestNow(FakeData):
         page = AccountEditPage(driver)
         page.last_name = self.last_name
         page.save().click()
+        # todo ffox AssertionError: assert 'Thank you fo...ebsite Store.' == 'You saved th...
         assert page.msg == AccountEditPage.SUCCESS
         assert page.url == AccountPage.URL
 
