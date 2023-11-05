@@ -1,7 +1,6 @@
 from conftest import *
 from pages.main_page import MainPage
 from pages.login_page import LoginPage
-from time import sleep
 
 
 def test_my_account(driver):
@@ -19,7 +18,6 @@ def test_my_wish(driver):
     page.sign_in(page)
     page = MainPage(driver)
     page.open()
-    sleep(30)
     page.dropdown().click()
     page.link_my_wish().click()
     assert page.current_url == 'https://magento.softwaretestingboard.com/wishlist/'

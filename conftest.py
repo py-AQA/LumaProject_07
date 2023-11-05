@@ -53,3 +53,8 @@ def random_last_name():
 def random_password():
     faker = Faker()
     return faker.password()
+
+@pytest.fixture
+def random_new_password():
+    faker = Faker()
+    return faker.password()

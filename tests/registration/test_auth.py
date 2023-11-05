@@ -47,6 +47,7 @@ def test_registration(driver, random_first_name, random_last_name, random_email,
     page.password().send_keys(random_password)
     page.confirm_password().send_keys(random_password)
     page.button_create_account().click()
+    time.sleep(10)
     assert page.success_message() == 'Thank you for registering with Main Website Store.'
     # assert page.is_visible(By.CSS_SELECTOR,
     # "[data-ui-id='message-success'] div").text == 'Thank you for registering with Main Website Store.'

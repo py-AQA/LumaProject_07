@@ -12,6 +12,8 @@ CHECK_BOX_EMAIL = (By.CSS_SELECTOR, '#change-email')
 CHECK_BOX_PASSWORD = (By.CSS_SELECTOR, '#change-password')
 EMAIL = (By.CSS_SELECTOR, 'input#email')
 CURRENT_PASSWORD = (By.CSS_SELECTOR, '#current-password')
+NEW_PASSWORD = (By.CSS_SELECTOR, '#password')
+CONFIRM_NEW_PASSWORD = (By.CSS_SELECTOR, '#password-confirmation')
 
 
 class MyAccountPage(BasePage):
@@ -48,3 +50,12 @@ class MyAccountPage(BasePage):
 
     def current_password(self) -> WebElement:
         return self.is_visible(CURRENT_PASSWORD)
+
+    def check_box_password(self):
+        return self.is_clickable(CHECK_BOX_PASSWORD)
+
+    def new_password(self) -> WebElement:
+        return self.is_visible(NEW_PASSWORD)
+
+    def confirm_new_password(self) -> WebElement:
+        return self.is_visible(CONFIRM_NEW_PASSWORD)

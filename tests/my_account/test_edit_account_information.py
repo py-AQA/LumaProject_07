@@ -1,4 +1,4 @@
-from conftest import driver
+from conftest import *
 from pages.login_page import LoginPage
 from pages.my_account import MyAccountPage
 from pages.registration_page import RegistrationPage
@@ -34,3 +34,18 @@ def test_change_email(driver, random_first_name, random_last_name, random_email,
     page.button_save_account().click()
     assert page.success_message == 'You saved the account information.'
     # assert 'sve3363@gmail.com' in page.contact_information, "Email не сохранилось"
+
+
+def test_change_password(driver, random_first_name, random_last_name, random_email, random_password, random_new_password):
+    page = RegistrationPage(driver)
+    page.create_account(page, random_first_name, random_last_name, random_email, random_password)
+    # page = LoginPage(driver)
+    # page.sign_in(page)
+    page = MyAccountPage(driver)
+    page.edit_account().click()
+    page.check_box_password().click()
+    page.current_password().send_keys(random_password)
+    page.new_password().send_keys(random_new_password)
+    page.confirm_new_password().send_keys(random_new_password)
+    page.button_save_account().click()
+    assert page.success_message == 'You saved the account information.'
