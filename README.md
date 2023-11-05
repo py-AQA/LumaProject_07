@@ -10,6 +10,8 @@ Project board for TC: https://trello.com/b/MWULLx71/lumaproject07
 - Run commands:
 **pip install selenium**
 **pip install pytest**
+**pip install pytest-xdist**
+**pip install pytest-repeat**
 **pip install faker**
 
 - After, execute **pytest -s -v** to run tests.
