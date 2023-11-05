@@ -4,9 +4,7 @@ from locators.locators import RegistrationPageLocators
 
 
 class RegistrationPage(BasePage):
-    URL = 'https://magento.softwaretestingboard.com/customer/account/create/'
-
-    def __init__(self, driver, url=URL):
+    def __init__(self, driver, url=RegistrationPageLocators.URL):
         super().__init__(driver, url)
 
     def first_name(self) -> WebElement:

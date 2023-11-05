@@ -4,9 +4,7 @@ from locators.locators import LoginPageLocators
 
 
 class LoginPage(BasePage):
-    URL = 'https://magento.softwaretestingboard.com/customer/account/login'
-
-    def __init__(self, driver, url=URL):
+    def __init__(self, driver, url=LoginPageLocators.URL):
         super().__init__(driver, url)
 
     def email(self) -> WebElement:

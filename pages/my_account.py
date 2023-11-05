@@ -4,9 +4,7 @@ from locators.locators import MyAccountPageLocators
 
 
 class MyAccountPage(BasePage):
-    URL = 'https://magento.softwaretestingboard.com/customer/account/'
-
-    def __init__(self, driver, url=URL):
+    def __init__(self, driver, url=MyAccountPageLocators.URL):
         super().__init__(driver, url)
 
     def edit_account(self) -> WebElement:

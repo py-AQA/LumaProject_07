@@ -6,6 +6,7 @@ class BasePageLocators:
 
 
 class MainPageLocators:
+    URL = 'https://magento.softwaretestingboard.com/'
     DROPDOWN = (By.CSS_SELECTOR, '.customer-name button.action.switch')
     LINK_MY_ACCOUNT = (By.XPATH, "(//*[@href='https://magento.softwaretestingboard.com/customer/account/'])[1]")
     LINK_MY_WISH = (By.XPATH, "(//*[@href='https://magento.softwaretestingboard.com/wishlist/'])[1]")
@@ -13,6 +14,7 @@ class MainPageLocators:
 
 
 class LoginPageLocators:
+    URL = 'https://magento.softwaretestingboard.com/customer/account/login'
     EMAIL = (By.CSS_SELECTOR, 'input#email')
     PASSWORD = (By.CSS_SELECTOR, 'input#pass')
     BUTTON_SIGN_IN = (By.CSS_SELECTOR, 'button.login')
@@ -20,6 +22,7 @@ class LoginPageLocators:
 
 
 class MyAccountPageLocators:
+    URL = 'https://magento.softwaretestingboard.com/customer/account/'
     EDIT_ACCOUNT = (By.XPATH, "(//*[@href='https://magento.softwaretestingboard.com/customer/account/edit/'])[1]")
     FIRST_NAME = (By.CSS_SELECTOR, 'input#firstname')
     LAST_NAME = (By.CSS_SELECTOR, 'input#lastname')
@@ -41,6 +44,7 @@ class ResetPageLocators:
 
 
 class RegistrationPageLocators:
+    URL = 'https://magento.softwaretestingboard.com/customer/account/create/'
     FIRST_NAME = (By.CSS_SELECTOR, 'input#firstname')
     LAST_NAME = (By.CSS_SELECTOR, 'input#lastname')
     EMAIL = (By.CSS_SELECTOR, 'input#email_address')

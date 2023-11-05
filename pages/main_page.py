@@ -4,9 +4,7 @@ from locators.locators import MainPageLocators
 
 
 class MainPage(BasePage):
-    URL = 'https://magento.softwaretestingboard.com/'
-
-    def __init__(self, driver, url=URL):
+    def __init__(self, driver, url=MainPageLocators.URL):
         super().__init__(driver, url)
 
     def dropdown(self) -> WebElement:
