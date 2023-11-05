@@ -79,13 +79,6 @@ def options(browser, state):
     return options
 
 
-@pytest.fixture
-def driver(options):
-    driver = webdriver.Chrome(options=options)
-    yield driver
-    driver.quit()
-
-
 @pytest.fixture(scope="function", autouse=True)
 def driver(request, browser, place, options):
     driver = None
@@ -152,6 +145,7 @@ def random_last_name():
 def random_password():
     faker = Faker()
     return faker.password()
+
 
 # todo стоит ли передавать новые данные фикстурами
 # @pytest.fixture
