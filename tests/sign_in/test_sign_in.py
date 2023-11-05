@@ -1,5 +1,4 @@
 from pages.login_page import LoginPage
-from conftest import driver
 
 
 def test_header(driver):

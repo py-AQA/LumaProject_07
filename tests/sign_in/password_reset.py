@@ -1,5 +1,4 @@
 from pages.password_reset import ResetPage
-from conftest import driver
 
 
 def test_password_reset(driver):
