@@ -1,19 +1,15 @@
 from pages.login_page import LoginPage
-from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
-
-EMAIL = (By.CSS_SELECTOR, 'input#email_address')
-BUTTON_RESET_PASSWORD = (By.CSS_SELECTOR, 'button.submit')
-SUCCESS_MESSAGE = (By.CSS_SELECTOR, "[data-ui-id=message-success] div")
+from locators.locators import ResetPageLocators
 
 
 class ResetPage(LoginPage):
     def email(self) -> WebElement:
-        return self.is_visible(EMAIL)
+        return self.is_visible(ResetPageLocators.EMAIL)
 
     def button_reset_password(self) -> WebElement:
-        return self.is_clickable(BUTTON_RESET_PASSWORD)
+        return self.is_clickable(ResetPageLocators.BUTTON_RESET_PASSWORD)
 
     def success_message(self) -> str:
-        return self.is_visible(SUCCESS_MESSAGE).text
+        return self.is_visible(ResetPageLocators.SUCCESS_MESSAGE).text
 

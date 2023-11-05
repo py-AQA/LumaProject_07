@@ -1,14 +1,8 @@
 from base.seleniumbase import BasePage
-from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
+from locators.locators import RegistrationPageLocators
 
-FIRST_NAME = (By.CSS_SELECTOR, 'input#firstname')
-LAST_NAME = (By.CSS_SELECTOR, 'input#lastname')
-EMAIL = (By.CSS_SELECTOR, 'input#email_address')
-PASSWORD = (By.CSS_SELECTOR, 'input#password')
-CONFIRM_PASSWORD = (By.CSS_SELECTOR, 'input#password-confirmation')
-BUTTON_CREATE_ACCOUNT = (By.CSS_SELECTOR, 'button.action.submit.primary')
-SUCCESS_MESSAGE = (By.CSS_SELECTOR, "[data-ui-id='message-success'] div")
+
 
 
 class RegistrationPage(BasePage):
@@ -18,25 +12,25 @@ class RegistrationPage(BasePage):
         super().__init__(driver, url)
 
     def first_name(self) -> WebElement:
-        return self.is_visible(FIRST_NAME)
+        return self.is_visible(RegistrationPageLocators.FIRST_NAME)
 
     def last_name(self) -> WebElement:
-        return self.is_visible(LAST_NAME)
+        return self.is_visible(RegistrationPageLocators.LAST_NAME)
 
     def email(self) -> WebElement:
-        return self.is_visible(EMAIL)
+        return self.is_visible(RegistrationPageLocators.EMAIL)
 
     def password(self) -> WebElement:
-        return self.is_visible(PASSWORD)
+        return self.is_visible(RegistrationPageLocators.PASSWORD)
 
     def confirm_password(self) -> WebElement:
-        return self.is_visible(CONFIRM_PASSWORD)
+        return self.is_visible(RegistrationPageLocators.CONFIRM_PASSWORD)
 
     def button_create_account(self) -> WebElement:
-        return self.is_clickable(BUTTON_CREATE_ACCOUNT)
+        return self.is_clickable(RegistrationPageLocators.BUTTON_CREATE_ACCOUNT)
 
     def success_message(self) -> str:
-        return self.is_visible(SUCCESS_MESSAGE).text
+        return self.is_visible(RegistrationPageLocators.SUCCESS_MESSAGE).text
 
     def create_account(self, page, random_first_name, random_last_name, random_email, random_password):
         page.open()
