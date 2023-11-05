@@ -3,7 +3,7 @@ from selenium.common import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait as wait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.remote.webelement import WebElement
-from locators.locators import BasePageLocators
+from data.locators import BasePageLocators
 
 
 class BasePage:

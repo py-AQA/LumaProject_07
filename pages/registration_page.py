@@ -1,6 +1,6 @@
 from base.base_page import BasePage
 from selenium.webdriver.remote.webelement import WebElement
-from locators.locators import RegistrationPageLocators
+from data.locators import RegistrationPageLocators
 
 
 class RegistrationPage(BasePage):

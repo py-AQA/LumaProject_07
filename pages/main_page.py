@@ -1,6 +1,6 @@
 from selenium.webdriver.remote.webelement import WebElement
 from base.base_page import BasePage
-from locators.locators import MainPageLocators
+from data.locators import MainPageLocators
 
 
 class MainPage(BasePage):

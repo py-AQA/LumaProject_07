@@ -1,11 +1,10 @@
 from selenium.webdriver.common.by import By
+from pages.abstract import Page
 from selenium.webdriver.support.ui import Select
 
-from base.base_page import BasePage
 
-
-class AddressAddPage(BasePage):
-    WITH_REGIONS = ["AU", "BR", "CA", "CH", "CN", "CO", "EE", "ES", "HR", "IN", "LT", "LV", "MX", "PL", "RO", "US"]
+class AddressAddPage(Page):
+    WITH_REGIONS = ["AU","BR","CA","CH","CN","CO","EE","ES","HR","IN","LT","LV","MX","PL","RO","US"]
     URL = "https://magento.softwaretestingboard.com/customer/address/new/"
     URL_DONE = "https://magento.softwaretestingboard.com/customer/address/index/"
 
@@ -58,7 +57,8 @@ class AddressAddPage(BasePage):
 
     @property
     def company(self):
-        return self.is_visible(self.COMPANY)
+        return self.is_visible(self.COMPANY)\
+
 
     @company.setter
     def company(self, val: str):
@@ -139,7 +139,6 @@ class AddressAddPage(BasePage):
     @property
     def set_billing(self):
         return self.is_clickable(self.SET_BILLING)
-
     @property
     def set_shpping(self):
         return self.is_clickable(self.SET_SHIPPING)
