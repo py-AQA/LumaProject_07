@@ -32,3 +32,7 @@ class BasePage:
     @property
     def current_url(self):
         return self.driver.current_url
+
+    def clear_and_send_keys(self, el: WebElement, val: str) -> None:
+        el.clear()
+        el.send_keys(val)
