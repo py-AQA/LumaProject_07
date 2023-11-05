@@ -1,5 +1,5 @@
 from selenium.webdriver.remote.webelement import WebElement
-from base.seleniumbase import BasePage
+from base.base_page import BasePage
 from locators.locators import MyAccountPageLocators
 
 
