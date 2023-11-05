@@ -14,7 +14,7 @@ class AnonShippigAddressAddPage(Page):
 
     FIRST_NAME = (By.CSS_SELECTOR, 'input[name="firstname"]')
     LAST_NAME = (By.CSS_SELECTOR, 'input[name="lastname"]')
-    COMPANY = (By.CSS_SELECTOR, 'input[name="lastname"]')
+    COMPANY = (By.CSS_SELECTOR, 'input[name="company"]')
     STREET_1 = (By.CSS_SELECTOR, 'input[name="street[0]"]')
     STREET_2 = (By.CSS_SELECTOR, 'input[name="street[1]"]')
     STREET_3 = (By.CSS_SELECTOR, 'input[name="street[2]"]')
