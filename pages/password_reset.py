@@ -1,6 +1,6 @@
 from pages.login_page import LoginPage
 from selenium.webdriver.remote.webelement import WebElement
-from locators.locators import ResetPageLocators
+from data.locators import ResetPageLocators
 
 
 class ResetPage(LoginPage):
