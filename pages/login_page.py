@@ -1,12 +1,6 @@
-from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
-
 from base.seleniumbase import BasePage
-
-EMAIL = (By.CSS_SELECTOR, 'input#email')
-PASSWORD = (By.CSS_SELECTOR, 'input#pass')
-BUTTON_SIGN_IN = (By.CSS_SELECTOR, 'button.login')
-BUTTON_FORGOT_PASSWORD = (By.CSS_SELECTOR, 'a.remind')
+from locators.locators import LoginPageLocators
 
 
 class LoginPage(BasePage):
@@ -16,16 +10,16 @@ class LoginPage(BasePage):
         super().__init__(driver, url)
 
     def email(self) -> WebElement:
-        return self.is_visible(EMAIL)
+        return self.is_visible(LoginPageLocators.EMAIL)
 
     def password(self) -> WebElement:
-        return self.is_visible(PASSWORD)
+        return self.is_visible(LoginPageLocators.PASSWORD)
 
     def button_sign_in(self) -> WebElement:
-        return self.is_clickable(BUTTON_SIGN_IN)
+        return self.is_clickable(LoginPageLocators.BUTTON_SIGN_IN)
 
     def button_forgot_password(self) -> WebElement:
-        return self.is_clickable(BUTTON_FORGOT_PASSWORD)
+        return self.is_clickable(LoginPageLocators.BUTTON_FORGOT_PASSWORD)
 
     def sign_in(self, page):
         page.open()

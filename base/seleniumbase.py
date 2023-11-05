@@ -1,9 +1,7 @@
 from selenium.webdriver.support.ui import WebDriverWait as wait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
-
-HEADER = (By.CSS_SELECTOR, 'h1 span')
+from locators.locators import BasePageLocators
 
 
 class BasePage:
@@ -15,7 +13,7 @@ class BasePage:
         self.driver.get(self.url)
 
     def header(self) -> WebElement:
-        return self.is_visible(HEADER)
+        return self.is_visible(BasePageLocators.HEADER)
 
     def is_visible(self, locator) -> WebElement:
         return wait(self.driver, timeout=15).until(EC.visibility_of_element_located(locator))

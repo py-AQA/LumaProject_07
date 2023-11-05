@@ -1,11 +1,6 @@
-from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
 from base.seleniumbase import BasePage
-
-DROPDOWN = (By.CSS_SELECTOR, '.customer-name button.action.switch')
-LINK_MY_ACCOUNT = (By.XPATH, "(//*[@href='https://magento.softwaretestingboard.com/customer/account/'])[1]")
-LINK_MY_WISH = (By.XPATH, "(//*[@href='https://magento.softwaretestingboard.com/wishlist/'])[1]")
-LINK_SIGN_OUT = (By.XPATH, "(//*[@href='https://magento.softwaretestingboard.com/customer/account/logout/'])[1]")
+from locators.locators import MainPageLocators
 
 
 class MainPage(BasePage):
@@ -15,13 +10,13 @@ class MainPage(BasePage):
         super().__init__(driver, url)
 
     def dropdown(self) -> WebElement:
-        return self.is_clickable(DROPDOWN)
+        return self.is_clickable(MainPageLocators.DROPDOWN)
 
     def link_my_account(self) -> WebElement:
-        return self.is_clickable(LINK_MY_ACCOUNT)
+        return self.is_clickable(MainPageLocators.LINK_MY_ACCOUNT)
 
     def link_my_wish(self) -> WebElement:
-        return self.is_clickable(LINK_MY_WISH)
+        return self.is_clickable(MainPageLocators.LINK_MY_WISH)
 
     def link_sign_out(self) -> WebElement:
-        return self.is_clickable(LINK_SIGN_OUT)
+        return self.is_clickable(MainPageLocators.LINK_SIGN_OUT)
