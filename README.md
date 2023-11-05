@@ -2,6 +2,7 @@
 **Group_74 Luma Project**
 
 Main project board for TC: https://trello.com/b/MWULLx71/lumaproject07
+
 Group project board for TC: https://trello.com/b/9vSnOrFr/group-74
 
 ## How to work with this repository:
