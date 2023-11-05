@@ -1,5 +1,5 @@
 import time
-
+from conftest import *
 from pages.registration_page import RegistrationPage
 
 
