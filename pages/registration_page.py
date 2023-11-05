@@ -1,10 +1,6 @@
-from Lesson4.base.seleniumbase import BasePage
+from base.seleniumbase import BasePage
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
-from selenium import webdriver
-import pytest
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.support.ui import WebDriverWait
 
 FIRST_NAME = (By.CSS_SELECTOR, 'input#firstname')
 LAST_NAME = (By.CSS_SELECTOR, 'input#lastname')

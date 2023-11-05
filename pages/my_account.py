@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
-from Lesson4.base.seleniumbase import BasePage
+from base.seleniumbase import BasePage
 
 EDIT_ACCOUNT = (By.XPATH, "(//*[@href='https://magento.softwaretestingboard.com/customer/account/edit/'])[1]")
 FIRST_NAME = (By.CSS_SELECTOR, 'input#firstname')

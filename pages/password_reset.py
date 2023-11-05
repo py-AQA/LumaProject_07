@@ -1,4 +1,4 @@
-from Lesson4.pages.login_page import LoginPage
+from pages.login_page import LoginPage
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
 

@@ -1,6 +1,5 @@
-from Lesson4.pages.login_page import LoginPage
-from Lesson4.pages.password_reset import ResetPage
-from Lesson4.conftest import driver, options
+from pages.password_reset import ResetPage
+from conftest import driver
 
 
 def test_password_reset(driver):

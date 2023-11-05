@@ -1,6 +1,6 @@
 import time
 
-from Lesson4.pages.registration_page import RegistrationPage
+from pages.registration_page import RegistrationPage
 
 
 def test_header(driver):

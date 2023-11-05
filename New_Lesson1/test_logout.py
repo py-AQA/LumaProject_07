@@ -1,5 +1,3 @@
-from selenium import webdriver
-import selenium.webdriver.common.by
 import time
 import data
 

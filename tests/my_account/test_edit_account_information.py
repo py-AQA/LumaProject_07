@@ -1,9 +1,7 @@
-from Lesson4.conftest import driver, options
-from Lesson4.pages.main_page import MainPage
-from Lesson4.pages.login_page import LoginPage
-from Lesson4.pages.my_account import MyAccountPage
-from Lesson4.pages.registration_page import RegistrationPage
-from Lesson4.tests.registration.conftest import *
+from conftest import driver
+from pages.login_page import LoginPage
+from pages.my_account import MyAccountPage
+from pages.registration_page import RegistrationPage
 
 
 def test_edit_first_and_last_name(driver):

@@ -1,5 +1,5 @@
-from Lesson4.pages.login_page import LoginPage
-from Lesson4.conftest import driver, options
+from pages.login_page import LoginPage
+from conftest import driver
 
 
 def test_header(driver):

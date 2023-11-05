@@ -1,6 +1,6 @@
-from Lesson4.conftest import driver, options
-from Lesson4.pages.main_page import MainPage
-from Lesson4.pages.login_page import LoginPage
+from conftest import driver
+from pages.main_page import MainPage
+from pages.login_page import LoginPage
 
 
 def test_my_account(driver):

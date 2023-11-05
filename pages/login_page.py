@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
 
-from Lesson4.base.seleniumbase import BasePage
+from base.seleniumbase import BasePage
 
 EMAIL = (By.CSS_SELECTOR, 'input#email')
 PASSWORD = (By.CSS_SELECTOR, 'input#pass')
