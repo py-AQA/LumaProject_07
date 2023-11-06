@@ -3,7 +3,7 @@ from pages.my_account import MyAccountPage
 
 
 class TestMyAccountSwitchingButtons:
-
+    #тестируем переходы по вкладкам в моем аккаунте
     def test_my_account_button(self, driver, auth):
         page = MyAccountPage(driver)
         page.my_orders_button().click()
@@ -47,41 +47,42 @@ class TestMyAccountSwitchingButtons:
 
 
 class TestCorrectnessOfTheSwitchButtonsName:
+    #тестируем правильное отображение текста кнопок в аккаунте
     def test_my_account_button_name(self, driver, auth):
         page = MyAccountPage(driver)
-        assert page.my_account_button().text == "My Account"
+        assert page.my_account_button().text == "My Account", 'Название кнопки My Account неправильное'
 
     def test_my_orders_button(self, driver, auth):
         page = MyAccountPage(driver)
         page.my_orders_button().click()
-        assert page.my_orders_button().text == "My Orders"
+        assert page.my_orders_button().text == "My Orders", 'Название кнопки My Orders неправильное'
 
     def test_my_downloadable_products_button(self, driver, auth):
         page = MyAccountPage(driver)
         page.my_downloadable_products_button().click()
-        assert page.my_downloadable_products_button().text == "My Downloadable Products"
+        assert page.my_downloadable_products_button().text =="My Downloadable Products", 'Название кнопки My Downloadable Products неправильное'
 
     def test_my_wish_list_button(self, driver, auth):
         page = MyAccountPage(driver)
         page.my_wish_list_button().click()
-        assert page.my_wish_list_button().text == "My Wish List"
+        assert page.my_wish_list_button().text == "My Wish List", 'Название кнопки My Wish List неправильное'
 
     def test_address_book_button(self, driver, auth):
         page = MyAccountPage(driver)
         page.address_book_button().click()
-        assert page.address_book_button().text == "Address Book"
+        assert page.address_book_button().text == "Address Book", 'Название кнопки Address Book неправильное'
 
     def test_account_information_button(self, driver, auth):
         page = MyAccountPage(driver)
         page.account_information_button().click()
-        assert page.account_information_button().text == "Account Information"
+        assert page.account_information_button().text == "Account Information", 'Название кнопки Account Information неправильное'
 
     def test_stored_payment_methods_button(self, driver, auth):
         page = MyAccountPage(driver)
         page.stored_payment_methods_button().click()
-        assert page.stored_payment_methods_button().text == "Stored Payment Methods"
+        assert page.stored_payment_methods_button().text == "Stored Payment Methods", 'Название кнопки Stored Payment Methods неправильное'
 
     def test_my_product_review_button(self, driver, auth):
         page = MyAccountPage(driver)
         page.my_product_reviews_button().click()
-        assert page.my_product_reviews_button().text == "My Product Reviews"
+        assert page.my_product_reviews_button().text == "My Product Reviews", 'Название кнопки My Product Reviews неправильное'
