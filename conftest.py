@@ -1,3 +1,5 @@
+from random import randint
+
 import pytest
 from faker import Faker
 from selenium import webdriver
@@ -6,6 +8,7 @@ from selenium.webdriver.edge.options import Options as EdgeOptions
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 
 from pages.login_page import LoginPage
+from pages.main_page import MainPage
 
 GRID_URL = "http://localhost:4444/wd/hub"
 
@@ -174,3 +177,38 @@ def auth(driver):
     LoginPage(driver).sign_in()
 
 
+# Добавил Даня
+@pytest.fixture()
+def random_zip_code():
+    faker = Faker()
+    fake_zip_code = faker.postcode()
+    return fake_zip_code
+# временно , возможно нужно поменять
+@pytest.fixture()
+def random_order_id():
+    fake_order_id = randint(111111111, 999999999)
+    return fake_order_id
+
+
+@pytest.fixture()
+def random_street():
+    faker = Faker()
+    fake_street = faker.street_address()
+    return fake_street
+
+@pytest.fixture()
+def random_city():
+    faker = Faker()
+    fake_city = faker.city()
+    return fake_city
+
+@pytest.fixture()
+def random_ru_phone_number():
+    fake_phone = f'+79{randint(111111111,999999999)}'
+    return fake_phone
+
+@pytest.fixture()
+def random_ru_zip_code():
+    fake_zip_code = f'19{randint(1111,9999)}'
+    return fake_zip_code
+#Добавил Даня конец
