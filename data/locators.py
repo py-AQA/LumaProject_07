@@ -98,7 +98,7 @@ class ItemPageLocators:
 
 
 class WishListPageLocators:
-    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "[data-ui-id='message-success'] div")
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "[data-ui-id='message-success']")
     ITEM_13740 = (By.CSS_SELECTOR, ".products-grid a[title='Breathe-Easy Tank']")
 
 
