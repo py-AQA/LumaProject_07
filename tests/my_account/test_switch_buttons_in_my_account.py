@@ -10,37 +10,78 @@ class TestMyAccountSwitchingButtons:
         page.my_account_button().click()
         assert page.current_url == MyAccountPageLocators.URL_MY_ACCOUNT, "НЕ УДАЛОСЬ ПЕРЕЙТИ НА СТРАНИЦУ МОЙ АККАУНТ"
 
-    def test_my_orders_button(self, driver,auth):
+    def test_my_orders_button(self, driver, auth):
         page = MyAccountPage(driver)
         page.my_orders_button().click()
         assert page.current_url == MyAccountPageLocators.URL_MY_ORDERS, "НЕ УДАЛОСЬ ПЕРЕЙТИ НА СТРАНИЦУ ЗАКАЗОВ"
 
-    def test_my_downloadable_products_button(self, driver,auth):
+    def test_my_downloadable_products_button(self, driver, auth):
         page = MyAccountPage(driver)
         page.my_downloadable_products_button().click()
         assert page.current_url == MyAccountPageLocators.URL_MY_DOWNLOADABLE_PRODUCTS, "НЕ УДАЛОСЬ ПЕРЕЙТИ НА СТРАНИЦУ DOWNLOADABLE PRODUCTS"
 
-    def test_my_wish_list_button(self, driver,auth):
+    def test_my_wish_list_button(self, driver, auth):
         page = MyAccountPage(driver)
         page.my_wish_list_button().click()
         assert page.current_url == MyAccountPageLocators.URL_MY_WISH_LIST, "НЕ УДАЛОСЬ ПЕРЕЙТИ НА СТРАНИЦУ WISH LIST"
 
-    def test_address_book_button(self, driver,auth):
+    def test_address_book_button(self, driver, auth):
         page = MyAccountPage(driver)
         page.address_book_button().click()
         assert page.current_url == MyAccountPageLocators.URL_NEW_ADDRESS_BOOK, "НЕ УДАЛОСЬ ПЕРЕЙТИ НА СТРАНИЦУ ADRESS BOOK"
 
-    def test_account_information_button(self, driver,auth):
+    def test_account_information_button(self, driver, auth):
         page = MyAccountPage(driver)
         page.account_information_button().click()
         assert page.current_url == MyAccountPageLocators.URL_ACCOUNT_INFORMATION, "НЕ УДАЛОСЬ ПЕРЕЙТИ НА СТРАНИЦУ ACCOUNT INFORMATION"
 
-    def test_stored_payment_methods_button(self, driver,auth):
+    def test_stored_payment_methods_button(self, driver, auth):
         page = MyAccountPage(driver)
         page.stored_payment_methods_button().click()
         assert page.current_url == MyAccountPageLocators.URL_STORED_PAYMENT_METHODS, "НЕ УДАЛОСЬ ПЕРЕЙТИ НА СТРАНИЦУ PAYMENT METHODS"
 
-    def test_my_product_review_button(self, driver,auth):
+    def test_my_product_review_button(self, driver, auth):
         page = MyAccountPage(driver)
         page.my_product_reviews_button().click()
         assert page.current_url == MyAccountPageLocators.URL_MY_PRODUCT_REVIEW, "НЕ УДАЛОСЬ ПЕРЕЙТИ НА СТРАНИЦУ MY PRODUCT REVIEW"
+
+
+class TestCorrectnessOfTheSwitchButtonsName:
+    def test_my_account_button_name(self, driver, auth):
+        page = MyAccountPage(driver)
+        assert page.my_account_button().text == "My Account"
+
+    def test_my_orders_button(self, driver, auth):
+        page = MyAccountPage(driver)
+        page.my_orders_button().click()
+        assert page.my_orders_button().text == "My Orders"
+
+    def test_my_downloadable_products_button(self, driver, auth):
+        page = MyAccountPage(driver)
+        page.my_downloadable_products_button().click()
+        assert page.my_downloadable_products_button().text == "My Downloadable Products"
+
+    def test_my_wish_list_button(self, driver, auth):
+        page = MyAccountPage(driver)
+        page.my_wish_list_button().click()
+        assert page.my_wish_list_button().text == "My Wish List"
+
+    def test_address_book_button(self, driver, auth):
+        page = MyAccountPage(driver)
+        page.address_book_button().click()
+        assert page.address_book_button().text == "Address Book"
+
+    def test_account_information_button(self, driver, auth):
+        page = MyAccountPage(driver)
+        page.account_information_button().click()
+        assert page.account_information_button().text == "Account Information"
+
+    def test_stored_payment_methods_button(self, driver, auth):
+        page = MyAccountPage(driver)
+        page.stored_payment_methods_button().click()
+        assert page.stored_payment_methods_button().text == "Stored Payment Methods"
+
+    def test_my_product_review_button(self, driver, auth):
+        page = MyAccountPage(driver)
+        page.my_product_reviews_button().click()
+        assert page.my_product_reviews_button().text == "My Product Reviews"
