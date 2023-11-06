@@ -10,6 +10,5 @@ def test_add_to_wish_list(driver, auth):
     page.open()
     page.add_item_to_wish_list().click()
     assert page.success_message == ItemToWishList.MESSAGE
-#     todo return self.is_visible(WishListPageLocators.SUCCESS_MESSAGE).text
-#     sometimes fails with AttributeError: 'NoneType' object has no attribute 'text'
+
 
