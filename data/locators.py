@@ -54,3 +54,11 @@ class RegistrationPageLocators:
     CONFIRM_PASSWORD = (By.CSS_SELECTOR, 'input#password-confirmation')
     BUTTON_CREATE_ACCOUNT = (By.CSS_SELECTOR, 'button.action.submit.primary')
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, "[data-ui-id='message-success'] div")
+
+
+class ItemPageLocators:
+    ADD_TO_WISH_LIST = (By.CSS_SELECTOR, 'div.product-social-links .towishlist')
+
+
+class WishListPageLocators:
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "[data-ui-id='message-success'] div")
