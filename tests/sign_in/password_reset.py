@@ -19,7 +19,7 @@ def test_password_reset_not_valid_email_pull(driver, email_pull):
     page = ResetPage(driver, url=ResetPageLocators.FORGOT_PASS_URL)
     page.open()
     page.email().send_keys(email_pull)
-    time.sleep(1) # без time sleep нестабильное и разное поведение сайта
+    time.sleep(1)  # без time sleep нестабильное и разное поведение сайта
     page.button_reset_password().click()
     assert page.error_message() == 'Please enter a valid email address (Ex: johndoe@domain.com).'
 
@@ -28,6 +28,13 @@ def test_password_reset_not_valid_email_single(driver):
     page = ResetPage(driver, url=ResetPageLocators.FORGOT_PASS_URL)
     page.open()
     page.email().send_keys("abc")
-    time.sleep(1) # без time sleep нестабильное поведение сайта
+    time.sleep(1)  # без time sleep нестабильное поведение сайта
     page.button_reset_password().click()
     assert page.error_message() == 'Please enter a valid email address (Ex: johndoe@domain.com).'
+
+
+def test_password_reset_no_email_filled(driver):
+    page = ResetPage(driver, url=ResetPageLocators.FORGOT_PASS_URL)
+    page.open()
+    page.button_reset_password().click()
+    assert page.error_message() == 'This is a required field.'
