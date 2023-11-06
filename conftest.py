@@ -54,6 +54,7 @@ def options(browser, state):
     if browser == "chrome":
         options = ChromeOptions()
         # options.add_argument('--window-size=800,800')
+        # options.add_argument("--auto-open-devtools-for-tabs")
         options.add_argument('--disable-application-cache')
         options.add_argument("--disable-automatic-password-saving")
         options.add_argument("--disable-default-apps")

@@ -63,10 +63,12 @@ class MyAccountPageLocators:
 class ResetPageLocators:
     URL = 'https://magento.softwaretestingboard.com/customer/account/login'
     FORGOT_PASS_URL = 'https://magento.softwaretestingboard.com/customer/account/forgotpassword/'
+    LONG_EMAIL = 'longgggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg@ya.ru'
     EMAIL = (By.CSS_SELECTOR, 'input#email_address')
     BUTTON_RESET_PASSWORD = (By.CSS_SELECTOR, 'button.submit')
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, "[data-ui-id=message-success] div")
     ERROR_MESSAGE = (By.CSS_SELECTOR, "#email_address-error")
+    ERROR_ALERT = (By.CSS_SELECTOR, '[data-ui-id="message-error"]')
 
 
 class RegistrationPageLocators:

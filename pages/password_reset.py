@@ -15,3 +15,6 @@ class ResetPage(LoginPage):
 
     def error_message(self) -> str:
         return self.is_visible(ResetPageLocators.ERROR_MESSAGE).text
+
+    def error_alert_message(self) -> str:
+        return self.is_visible(ResetPageLocators.ERROR_ALERT).text
