@@ -9,5 +9,5 @@ class LogoutPage(Page):
 
     def __init__(self, driver, url=URL):
         super().__init__(driver)
-        self.url = url
-        sleep(1)
+        self.myurl = url
+

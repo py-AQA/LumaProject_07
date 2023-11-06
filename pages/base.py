@@ -16,18 +16,12 @@ class Base:
     def __init__(self, driver):
         self.driver = driver
 
-    # def open(self, val) -> None:
-    #     self.driver.get(val)
-
-    def header(self) -> WebElement:
-        pass
-
     @property
-    def url(self) -> str:
+    def myurl(self) -> str:
         return self.current_url()
 
-    @url.setter
-    def url(self, val) -> None:
+    @myurl.setter
+    def myurl(self, val) -> None:
         self.driver.get(val)
 
     def window_size(self) -> dict:
@@ -57,15 +51,12 @@ class Base:
         except TimeoutException as e:
             print(f"Timeout: Elements located by {locator} not present after {timeout}s")
 
+    def current_url(self):
+        return self.driver.current_url
+
     def clear_and_send_keys(self, el: WebElement, val: str) -> None:
         el.clear()
         el.send_keys(val)
 
-    def current_url(self):
-        return self.driver.current_url
 
-    def is_user_logged(self):
-        pass
 
-    def is_message(self):
-        pass

@@ -17,7 +17,7 @@ class SignInPage(Page):
 
     def __init__(self, driver, url=URL):
         super().__init__(driver)
-        self.url = url
+        self.myurl = url
 
         # self.referer = parse.unquote(url.split('referer/')[1])
         # print(b64decode(self.referer))
