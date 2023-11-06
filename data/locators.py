@@ -38,6 +38,27 @@ class MyAccountPageLocators:
     NEW_PASSWORD = (By.CSS_SELECTOR, '#password')
     CONFIRM_NEW_PASSWORD = (By.CSS_SELECTOR, '#password-confirmation')
 
+    #ДОБАВИЛ ДАНЯ
+    MY_ACCOUNT_BUTTON = (By.XPATH, "(//ul[@class='nav items']/li)[1]")
+    MY_ORDERS_BUTTON = (By.XPATH, "(//ul[@class='nav items']/li)[2]")
+    MY_DOWNLOADABLE_PRODUCTS_BUTTON = (By.XPATH, "(//ul[@class='nav items']/li)[3]")
+    MY_WISH_LIST_BUTTON = (By.XPATH, "(//ul[@class='nav items']/li)[4]")
+    ADDRESS_BOOK_BUTTON = (By.XPATH, "(//ul[@class='nav items']/li)[6]")
+    ACCOUNT_INFORMATION_BUTTON = (By.XPATH, "(//ul[@class='nav items']/li)[7]")
+    STORED_PAYMENT_METHODS_BUTTON = (By.XPATH, "(//ul[@class='nav items']/li)[8]")
+    MY_PRODUCT_REVIEWS_BUTTON = (By.XPATH, "(//ul[@class='nav items']/li)[10]")
+    #ВРЕМЕННО URLS
+    URL_MY_ACCOUNT = "https://magento.softwaretestingboard.com/customer/account/"
+    URL_MY_ORDERS = "https://magento.softwaretestingboard.com/sales/order/history/"
+    URL_MY_DOWNLOADABLE_PRODUCTS = "https://magento.softwaretestingboard.com/downloadable/customer/products/"
+    URL_MY_WISH_LIST = "https://magento.softwaretestingboard.com/wishlist/"
+    URL_ADDRESS_BOOK = "https://magento.softwaretestingboard.com/customer/address/"
+    URL_NEW_ADDRESS_BOOK = "https://magento.softwaretestingboard.com/customer/address/new/"
+    URL_ACCOUNT_INFORMATION = "https://magento.softwaretestingboard.com/customer/account/edit/"
+    URL_STORED_PAYMENT_METHODS = "https://magento.softwaretestingboard.com/vault/cards/listaction/"
+    URL_MY_PRODUCT_REVIEW = "https://magento.softwaretestingboard.com/review/customer/"
+    #ДОБАВИЛ ДАНЯ КОНЕЦ
+
 
 class ResetPageLocators:
     EMAIL = (By.CSS_SELECTOR, 'input#email_address')
@@ -64,3 +85,31 @@ class WishListPageLocators:
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, "[data-ui-id='message-success'] div")
     ITEM_13740 = (By.CSS_SELECTOR, ".products-grid a[title='Breathe-Easy Tank']")
 
+
+#ДОБАВИЛ ДАНЯ
+class OrdersAndReturnsPageLocators:
+    ORDER_ID_FIELD = (By.XPATH, "//*[@id='oar-order-id']")
+    ORDER_ID_FIELD_MESSAGE_ERROR = (By.XPATH, "//*[@id='oar-order-id-error']")
+
+    BILLING_LASTNAME_FIELD = (By.XPATH, "//*[@id='oar-billing-lastname']")
+    BILLING_LASTNAME_FIELD_MESSAGE_ERROR = (By.XPATH, "//*[@id='oar-billing-lastname-error']")
+
+    FIND_ORDER_BY_DROPDOWN = (By.XPATH,"//*[@id='quick-search-type-id']")
+    FIND_ORDER_BY_EMAIL_DROPDOWN = (By.XPATH,"//option[@value='email']")
+    FIND_ORDER_BY_ZIP_CODE_DROPDOWN = (By.XPATH, "//option[@value='zip']")
+
+    EMAIL_FIELD = (By.XPATH,"//*[@id='oar_email']")
+    EMAIL_FIELD_MESSAGE_ERROR = (By.XPATH, "//*[@id='oar_email-error']")
+    LABEL_EMAIL_FIELD = (By.XPATH,"//label[@for='oar_email']")
+
+    ZIP_FIELD = (By.XPATH,"//*[@id='oar_zip']")
+    ZIP_FIELD_MESSAGE_ERROR = (By.XPATH, "//*[@id='oar_zip-error']")
+    LABEL_ZIP_FIELD = (By.XPATH, "//label[@for='oar_zip']")
+
+    CONTINUE_BUTTON = (By.XPATH, "//*[@title='Continue']")
+
+    TEXT_ERROR_MESSAGE_FIELD_NOT_FIELD = "This is a required field."
+    TEXT_ERROR_MESSAGE_EMAIL_TYPE = "Please enter a valid email address (Ex: johndoe@domain.com)."
+    TEXT_LABEL_ZIP_FIELD = "Billing ZIP Code"
+    TEXT_LABEL_EMAIL_FIELD = "Email"
+#ДОБАВИЛ ДАНЯ КОНЕЦ
