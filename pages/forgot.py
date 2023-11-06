@@ -13,7 +13,7 @@ class ForgotPage(Page):
 
     def __init__(self, driver, url=URL):
         super().__init__(driver)
-        self.url = url
+        self.myurl = url
 
     @property
     def email(self):

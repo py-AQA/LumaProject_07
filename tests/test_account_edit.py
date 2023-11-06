@@ -14,7 +14,7 @@ class TestNow(FakeData):
         page.first_name = self.first_name
         page.save().click()
         assert page.msg == AccountEditPage.SUCCESS
-        assert page.url == AccountPage.URL
+        assert page.myurl == AccountPage.URL
 
     def test_change_last_name(self, driver, first_name, last_name, email, password):
         LogoutPage(driver)
@@ -24,7 +24,7 @@ class TestNow(FakeData):
         page.save().click()
         # todo ffox AssertionError: assert 'Thank you fo...ebsite Store.' == 'You saved th...
         assert page.msg == AccountEditPage.SUCCESS
-        assert page.url == AccountPage.URL
+        assert page.myurl == AccountPage.URL
 
     def test_change_email(self, driver, first_name, last_name, email, password):
         LogoutPage(driver)
@@ -35,7 +35,7 @@ class TestNow(FakeData):
         page.password_current = password
         page.save().click()
         assert page.msg == AccountEditPage.SUCCESS
-        assert page.url == SignInPage.URL
+        assert page.myurl == SignInPage.URL
 
     def test_change_password(self, driver, first_name, last_name, email, password):
         LogoutPage(driver)
@@ -47,7 +47,7 @@ class TestNow(FakeData):
         page.password_confirm = password_new
         page.save().click()
         assert page.msg == AccountEditPage.SUCCESS
-        assert page.url == SignInPage.URL
+        assert page.myurl == SignInPage.URL
 
     def test_change_email_and_password(self, driver, first_name, last_name, email, password):
         LogoutPage(driver)
@@ -60,4 +60,4 @@ class TestNow(FakeData):
         page.password = (password_new := self.password)
         page.password_confirm = password_new
         page.save().click()
-        assert page.url == SignInPage.URL
+        assert page.myurl == SignInPage.URL

@@ -37,7 +37,7 @@ class AddressAddPage(Page):
     def __init__(self, driver, url=URL):
         super().__init__(driver)
         # переходим к указанной или URL странице
-        self.url = url
+        self.myurl = url
 
     @property
     def first_name(self):

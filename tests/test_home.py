@@ -11,7 +11,7 @@ class TestNow(FakeData):
         # todo узнать какую страницу сайта выбрать для проверки
         page = HomePage(driver)
         page.sign_in.click()
-        assert page.url.startswith(SignInPage.URL)
+        assert page.myurl.startswith(SignInPage.URL)
 
     def test_create_account_link(self, driver):
         LogoutPage(driver)
@@ -19,7 +19,7 @@ class TestNow(FakeData):
         # todo fails with assert page.url == CreateAccountPage.URL for .../account/create/ .../account/login/referer...
         page = HomePage(driver)
         page.create_account.click()
-        assert page.url == CreateAccountPage.URL
+        assert page.myurl == CreateAccountPage.URL
 
     def test_logo_link(self, driver):
         LogoutPage(driver)
@@ -27,5 +27,5 @@ class TestNow(FakeData):
         # go to any page of the site
         page = HomePage(driver, "https://magento.softwaretestingboard.com/customer/account/create/")
         page.logo.click()
-        assert page.url == HomePage.URL
+        assert page.myurl == HomePage.URL
 

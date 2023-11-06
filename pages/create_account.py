@@ -19,7 +19,7 @@ class CreateAccountPage(Page):
         super().__init__(driver)
         # переходим к указанной или URL странице
         # print('>>>>>>>>>>>>>', url)
-        self.url = url
+        self.myurl = url
 
     @property
     def first_name(self):
@@ -71,5 +71,5 @@ class CreateAccountPage(Page):
         self.password_one = password
         self.password_two = password
         self.create_account().click()
-        assert self.url == AccountPage.URL
+        assert self.myurl == AccountPage.URL
         # return AccountPage(self.driver)
