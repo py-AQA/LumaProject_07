@@ -1,3 +1,5 @@
+from random import randint
+
 from selenium.webdriver.common.by import By
 
 
@@ -13,6 +15,15 @@ class MainPageLocators:
     LINK_MY_ACCOUNT = (By.XPATH, "(//*[@href='https://magento.softwaretestingboard.com/customer/account/'])[1]")
     LINK_MY_WISH = (By.XPATH, "(//*[@href='https://magento.softwaretestingboard.com/wishlist/'])[1]")
     LINK_SIGN_OUT = (By.XPATH, "(//*[@href='https://magento.softwaretestingboard.com/customer/account/logout/'])[1]")
+    #ДОБАВИЛ ДАНЯ
+    LINK_CART = (By.XPATH, "//*[@class='minicart-wrapper']")
+    CHECKOUT_BUTTON_LINK_CART = (By.XPATH,"//*[@id='top-cart-btn-checkout']")
+    LINK_GEAR_CATALOG = (By.XPATH,"//*[@ID='ui-id-6']")
+    LINK_WATCHES_CATALOG =(By.XPATH,"//*[@ID='ui-id-27']")
+    ADD_TO_CART_BOLO_SPORT_WATCH_BUTTON = (By.XPATH, "(//div[@class='product details product-item-details']//button[@title='Add to Cart'])[3]")
+    HOLD_LINK_BOLO_SPORT_WATCH = (By.XPATH,"(//div[@class='product details product-item-details'])[3]")
+    URL_CART = "https://magento.softwaretestingboard.com/checkout/cart/"
+    #ДАНЯ КОНЕЦ
 
 
 class LoginPageLocators:
@@ -105,16 +116,49 @@ class OrdersAndReturnsPageLocators:
 
     EMAIL_FIELD = (By.XPATH,"//*[@id='oar_email']")
     EMAIL_FIELD_MESSAGE_ERROR = (By.XPATH, "//*[@id='oar_email-error']")
-    LABEL_EMAIL_FIELD = (By.XPATH,"//label[@for='oar_email']")
+    NAME_EMAIL_FIELD = (By.XPATH,"//label[@for='oar_email']")
 
     ZIP_FIELD = (By.XPATH,"//*[@id='oar_zip']")
     ZIP_FIELD_MESSAGE_ERROR = (By.XPATH, "//*[@id='oar_zip-error']")
-    LABEL_ZIP_FIELD = (By.XPATH, "//label[@for='oar_zip']")
+    NAME_ZIP_CODE_FIELD = (By.XPATH, "//label[@for='oar_zip']")
 
     CONTINUE_BUTTON = (By.XPATH, "//*[@title='Continue']")
 
     TEXT_ERROR_MESSAGE_FIELD_NOT_FIELD = "This is a required field."
     TEXT_ERROR_MESSAGE_EMAIL_TYPE = "Please enter a valid email address (Ex: johndoe@domain.com)."
-    TEXT_LABEL_ZIP_FIELD = "Billing ZIP Code"
-    TEXT_LABEL_EMAIL_FIELD = "Email"
+    TEXT_NAME_ZIP_CODE_FIELD = "Billing ZIP Code"
+    TEXT_NAME_EMAIL_FIELD = "Email"
+
+    ORDER_NUMBER_ON_CHECK_PAGE = (By.XPATH,"//span[@class='base']")
+
+
+class GuestShippingAddressPageLocators:
+
+    EMAIL_FIELD = (By.XPATH, "//div[@class='field required']//*[@id='customer-email']")
+    FIRST_NAME_FIELD = (By.XPATH , "//*[@name='firstname']")
+    LAST_NAME_FIELD = (By.XPATH, "//*[@name='lastname']")
+    STREET_1_FIELD = (By.XPATH, "//*[@name='street[0]']")
+    CITY_FIELD = (By.XPATH, "//*[@name='city']")
+    COUNTRY_FIELD_DROPDOWN = (By.XPATH, "//*[@name='country_id']")
+    RUSSIA_COUNTRY_DROPDOWN = (By.XPATH, "//*[@data-title='Russia']")
+    ZIP_CODE_FIELD = (By.XPATH, "//*[@name='postcode']")
+    PHONE_NUMBER_FIELD = (By.XPATH, "//*[@name='telephone']")
+
+    SHIPPING_BEST_WAY = (By.XPATH, "//*[@id='label_carrier_bestway_tablerate']")
+    SHIPPING_FLAT_RATE = (By.XPATH, "//*[@id='label_carrier_flatrate_flatrate']")
+
+    ORDER_NUMBER = (By.XPATH, "//div[@class='checkout-success']/p/span")
+    EMAIL_ORDER = (By.XPATH, "//*[@data-bind='text: getEmailAddress()']")
+
+    CHECKOUT_STEP_2_NEXT_BUTTON = (By.XPATH, "//*[@class='button action continue primary']")
+    PLACE_ORDER_BUTTON = (By.XPATH, "//button[@title='Place Order']")
+
+
+
+class CartLocators:
+
+    CART_PROCEED_TO_CHECKOUT_BUTTON = (By.XPATH, "//div[@class='cart-summary']//*[@title='Proceed to Checkout']")
+
+
 #ДОБАВИЛ ДАНЯ КОНЕЦ
+
