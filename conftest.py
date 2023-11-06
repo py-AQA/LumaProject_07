@@ -5,6 +5,8 @@ from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.edge.options import Options as EdgeOptions
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 
+from pages.login_page import LoginPage
+
 GRID_URL = "http://localhost:4444/wd/hub"
 
 
@@ -164,3 +166,11 @@ def random_new_email():
 def random_new_password():
     faker = Faker()
     return faker.password()
+
+
+@pytest.fixture()
+def auth(driver):
+    """Функция для авторизации в тестах"""
+    LoginPage(driver).sign_in()
+
+
