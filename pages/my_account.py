@@ -44,3 +44,5 @@ class MyAccountPage(BasePage):
 
     def confirm_new_password(self) -> WebElement:
         return self.is_visible(MyAccountPageLocators.CONFIRM_NEW_PASSWORD)
+
+
