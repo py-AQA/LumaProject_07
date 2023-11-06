@@ -1,9 +1,9 @@
 from selenium.webdriver.common.by import By
-from pages.base import Base
+from base.base_page import BasePage
 from pages.abstract import Page
 
 
-class Link(Base):
+class Link(Page):
     LOCATOR = (By.CSS_SELECTOR, ".page-footer")
     TEXT = ""
     COLOR = ""
@@ -25,7 +25,7 @@ class Link(Base):
         assert self.el().get_attribute("href") == self.TEXT
 
 
-class Footer(Base):
+class Footer(Page):
     # FOOTER = (By.CSS_SELECTOR, "div.footer.content")
     LOCATOR = (By.CSS_SELECTOR, ".page-footer")
     ALL_LINKS = (By.CSS_SELECTOR, ".page-footer a")
@@ -42,7 +42,7 @@ class Footer(Base):
         assert self.el().value_of_css_property("background-color") == self.BACKGROUND_COLOR
 
 
-class BurgerMenu(Base):
+class BurgerMenu(Page):
     SIGN_IN_SIDE = (By.CSS_SELECTOR, "div.section-item-content li.authorization-link a")
     ACCOUNT_SIDE = (By.CSS_SELECTOR, "div.section-item-content li a")
     WELCOME_SIDE = (By.CSS_SELECTOR, "div.section-item-content span.logged-in")

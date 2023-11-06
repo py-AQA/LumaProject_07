@@ -1,10 +1,10 @@
 from time import sleep
 
 from selenium.webdriver.common.by import By
-from pages.base import Base
+from base.base_page import BasePage
 
 
-class Demo(Base):
+class Demo(BasePage):
     LOCATOR = (By.CSS_SELECTOR, "div.demo")
     TEXT = ("This is a demo store to test your test automaiton scripts. "
                  "No orders will be fulfilled. If you are facing any issue, "
@@ -26,7 +26,7 @@ class Demo(Base):
         assert self.demo.text == self.TEXT
 
 
-class Copyright(Base):
+class Copyright(BasePage):
     LOCATOR = (By.CSS_SELECTOR, ".copyright span")
     TEXT = "Copyright © 2013-present Magento, Inc. All rights reserved."
     BACKGROUND_COLOR = "#6e716e"
@@ -42,7 +42,7 @@ class Copyright(Base):
         assert self.el().text == self.TEXT
 
 
-class Page(Base):
+class Page(BasePage):
 
     MSG = (By.CSS_SELECTOR, '[data-ui-id="message-success"]')
 
