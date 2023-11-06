@@ -1,5 +1,7 @@
 from time import sleep
 
+import pytest
+
 from data.fake_data import FakeData
 from pages.abstract import Page
 from pages.account import AccountPage
@@ -17,20 +19,23 @@ class TestNow(FakeData):
         page.add_to_cart().click()
         assert page.msg == ItemDetailsPage.SUCCESS
 
+    @pytest.mark.skip
     def test_add_unavailable_item_to_cart(self, driver):
         pass
 
-
+    @pytest.mark.skip
     def test_add_available_item_to_cart_from_item_details(self, driver):
         pass
 
+    @pytest.mark.skip
     def test_add_unavailable_item_to_cart_from_item_details(self, driver):
         pass
 
-
+    @pytest.mark.skip
     def test_add_available_item_to_cart_from_item(self, driver):
         pass
 
+    @pytest.mark.skip
     def test_add_unavailable_item_to_cart_from_item(self, driver):
         pass
 

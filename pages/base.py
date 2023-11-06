@@ -7,16 +7,17 @@ from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.ui import WebDriverWait as wait
 from selenium.webdriver.support import expected_conditions as EC
 
+from base.base_page import BasePage
 
-# @pytest.mark.usefixtures("driver_fixture")
+
 class Base:
     driver: WebDriver = None
 
     def __init__(self, driver):
         self.driver = driver
 
-    def open(self, val) -> None:
-        self.driver.get(val)
+    # def open(self, val) -> None:
+    #     self.driver.get(val)
 
     def header(self) -> WebElement:
         pass

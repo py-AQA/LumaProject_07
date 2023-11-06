@@ -48,5 +48,6 @@ class TestNow(FakeData):
         # assert page.url == AnonShippigAddressAddPage.URL_DONE
         sleep(20)
 
+    @pytest.mark.skip
     def test_anon_add_shipping_address_with_input_state(self, driver):
         pass

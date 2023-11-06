@@ -6,9 +6,7 @@ import pytest
 
 # @pytest.mark.skip
 # @pytest.mark.xfail
-def test_my_account(driver):
-    page = LoginPage(driver)
-    page.sign_in(page)
+def test_my_account(driver, auth):
     page = MainPage(driver)
     page.open()
     page.dropdown().click()
@@ -18,9 +16,7 @@ def test_my_account(driver):
 
 # @pytest.mark.skip
 # @pytest.mark.xfail
-def test_my_wish(driver):
-    page = LoginPage(driver)
-    page.sign_in(page)
+def test_my_wish(driver, auth):
     page = MainPage(driver)
     page.open()
     # sleep(30)
@@ -31,14 +27,7 @@ def test_my_wish(driver):
 
 # @pytest.mark.skip
 # @pytest.mark.xfail
-def test_sign_out(driver):
-    page = LoginPage(driver)
-    # page.open()
-    # page.email().send_keys('sve3363@gmail.com')
-    # page.password().send_keys('Zaqxsw100')
-    # page.button_sign_in().click()
-    # assert page.header().text == 'My Account'
-    page.sign_in(page)
+def test_sign_out(driver, auth):
     page = MainPage(driver)
     page.open()
     page.dropdown().click()
