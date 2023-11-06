@@ -4,6 +4,11 @@ from selenium.webdriver.support.ui import WebDriverWait as wait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.remote.webelement import WebElement
 from data.locators import BasePageLocators
+# ДАНЯ ДОБАВИЛ
+from selenium.webdriver.common.action_chains import ActionChains
+
+
+# ДАНЯ ДОБАВИЛ КОНЕЦ
 
 
 class BasePage:
@@ -36,3 +41,10 @@ class BasePage:
     def clear_and_send_keys(self, el: WebElement, val: str) -> None:
         el.clear()
         el.send_keys(val)
+
+    # ДАНЯ ДОБАВИЛ
+    def hold_mouse_on_element(self, locator):
+        element_to_hover_over = wait(self.driver, timeout=15).until(EC.visibility_of_element_located(locator))
+        hover = ActionChains(self.driver).move_to_element(element_to_hover_over)
+        hover.perform()
+    # ДАНЯ ДОБАВИЛ КОНЕЦ
