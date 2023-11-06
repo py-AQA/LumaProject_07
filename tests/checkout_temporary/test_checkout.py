@@ -16,6 +16,7 @@ class TestCheckOutGuest:
         checkout_page.fill_all_require_field(email=random_email, firstname=random_first_name, lastname=random_last_name,
                                              street_1=random_street, city=random_city, zip_code=random_ru_zip_code,
                                              phone_number=random_ru_phone_number)
+        # todo element click intercepted: Element <td class="col col-carrier" data-bind="attr: {'id': 'label_carrier_'
         checkout_page.select_flat_rate_shipping().click()
         checkout_page.step_2_next_button().click()
         sleep(4)

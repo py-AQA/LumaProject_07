@@ -32,4 +32,4 @@ def test_sign_out(driver, auth):
     page.open()
     page.dropdown().click()
     page.link_sign_out().click()
-    assert page.driver.current_url == 'https://magento.softwaretestingboard.com/customer/account/logoutSuccess/'
+    assert page.current_url == 'https://magento.softwaretestingboard.com/customer/account/logoutSuccess/'
