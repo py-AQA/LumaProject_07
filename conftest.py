@@ -183,12 +183,6 @@ def random_zip_code():
     faker = Faker()
     fake_zip_code = faker.postcode()
     return fake_zip_code
-# временно , возможно нужно поменять
-@pytest.fixture()
-def random_order_id():
-    fake_order_id = randint(111111111, 999999999)
-    return fake_order_id
-
 
 @pytest.fixture()
 def random_street():
@@ -211,4 +205,10 @@ def random_ru_phone_number():
 def random_ru_zip_code():
     fake_zip_code = f'19{randint(1111,9999)}'
     return fake_zip_code
+
+# временно , возможно нужно поменять
+@pytest.fixture()
+def random_order_id():
+    fake_order_id = randint(111111111, 999999999)
+    return fake_order_id
 #Добавил Даня конец
