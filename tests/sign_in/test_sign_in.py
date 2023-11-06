@@ -9,10 +9,7 @@ def test_header(driver):
 
 def test_sign_in(driver):
     page = LoginPage(driver, url='https://magento.softwaretestingboard.com/customer/account/login')
-    page.open()
-    page.email().send_keys('sve3363@gmail.com')
-    page.password().send_keys('Zaqxsw100')
-    page.button_sign_in().click()
+    page.sign_in()
     assert page.header().text == 'My Account'
 
 

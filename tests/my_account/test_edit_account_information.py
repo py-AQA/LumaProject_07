@@ -5,7 +5,7 @@ from pages.registration_page import RegistrationPage
 
 def test_edit_first_and_last_name(driver):
     page = LoginPage(driver)
-    page.sign_in(page)
+    page.sign_in()
     page = MyAccountPage(driver)
     page.edit_account().click()
     assert page.current_url == 'https://magento.softwaretestingboard.com/customer/account/edit/'
