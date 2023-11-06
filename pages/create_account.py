@@ -19,7 +19,7 @@ class CreateAccountPage(Page):
         super().__init__(driver)
         # переходим к указанной или URL странице
         # print('>>>>>>>>>>>>>', url)
-        self.myurl = url
+        self.current_url = url
 
     @property
     def first_name(self):

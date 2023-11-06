@@ -53,4 +53,4 @@ class TestNow(FakeData):
 
         page.save().click()
         assert page.msg == AddressAddPage.SUCCESS
-        assert page.myurl == AddressAddPage.URL_DONE
+        assert page.current_url == AddressAddPage.URL_DONE

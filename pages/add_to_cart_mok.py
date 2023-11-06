@@ -11,7 +11,7 @@ class ItemDetailsPage(Page):
 
     def __init__(self, driver, url=URL):
         super().__init__(driver)
-        self.myurl = url
+        self.current_url = url
 
     def add_to_cart(self):
         return self.is_clickable(self.ADD_TO_CART)

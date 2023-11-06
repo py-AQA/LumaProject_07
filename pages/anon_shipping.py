@@ -37,7 +37,7 @@ class AnonShippigAddressAddPage(Page):
     def __init__(self, driver, url=URL):
         super().__init__(driver)
         # переходим к указанной или URL странице
-        self.myurl = url
+        self.current_url = url
 
     @property
     def email(self):
