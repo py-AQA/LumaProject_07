@@ -9,6 +9,9 @@ def test_add_to_wish_list(driver, auth):
     page = ItemToWishList(driver)
     page.open()
     page.add_item_to_wish_list().click()
+    sleep(3)
+    # todo убрать явный слип и сделать ожидание которое не ломается
+    assert page.current_url.startswith("https://magento.softwaretestingboard.com/wishlist/")
     assert page.success_message == ItemToWishList.MESSAGE
 
 
