@@ -17,9 +17,9 @@ class BasePage:
     def header(self) -> WebElement:
         return self.is_visible(BasePageLocators.HEADER)
 
-    def is_visible(self, locator: (str, str), timeout: int = 15) -> WebElement:
+    def is_visible(self, locator: (str, str), timeout: int = 10) -> WebElement:
         try:
-            return wait(self.driver, timeout).until(EC.element_to_be_clickable(locator))
+            return wait(self.driver, timeout).until(EC.visibility_of_element_located(locator))
         except TimeoutException:
             print(f"Timeout: Element located by {locator} not visible after {timeout}s")
 
