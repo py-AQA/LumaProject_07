@@ -73,7 +73,7 @@ class GuestShippingAddressPage(BasePage):
         self.fill_all_require_field(email, firstname, lastname, street_1, city, zip_code, phone_number)
         self.select_flat_rate_shipping().click()
         self.step_2_next_button().click()
-        sleep(4)
+        sleep(6)
         self.place_order_button().click()
         order_id = self.order_number().text
         assert self.current_url == "https://magento.softwaretestingboard.com/checkout/onepage/success/"

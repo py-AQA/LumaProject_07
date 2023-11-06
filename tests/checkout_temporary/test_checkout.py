@@ -19,7 +19,7 @@ class TestCheckOutGuest:
         # todo element click intercepted: Element <td class="col col-carrier" data-bind="attr: {'id': 'label_carrier_'
         checkout_page.select_flat_rate_shipping().click()
         checkout_page.step_2_next_button().click()
-        sleep(4)
+        sleep(6)
         checkout_page.place_order_button().click()
         assert checkout_page.email_order().text == random_email, 'неправильно отобразился email после заказа'
         assert checkout_page.current_url == "https://magento.softwaretestingboard.com/checkout/onepage/success/", 'не удалось сделать гостевой заказ'
