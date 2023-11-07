@@ -1,3 +1,5 @@
+from random import randint
+
 from faker import Faker
 
 
@@ -60,4 +62,9 @@ class FakeData:
                      'Vermont': 'VT', 'Virginia': 'VA', 'Washington': 'WA', 'West Virginia': 'WV', 'Wisconsin': 'WI','Wyoming': 'WY'}
         state = converter[state]
         return Faker().postcode_in_state(f'{state}')
+
+    @property
+    def order_id(self):
+        fake_order_id = randint(111111111, 999999999)
+        return fake_order_id
 # ДАНЯ ДОБАВИЛ КОНЕЦ
