@@ -1,11 +1,11 @@
 from selenium.webdriver.common.by import By
 
 from base.base_page import BasePage
-from data.locators import GuestShippingAddressPageLocators, CartLocators
+from data.locators import CheckoutPageLocators, CartLocators
 
 
-class GuestShippingAddressPage(BasePage):
-    URL = "https://magento.softwaretestingboard.com/checkout/cart/"
+class CheckoutPage(BasePage):
+    URL = "https://magento.softwaretestingboard.com/checkout/"
 
     URL_ORDER_PLACED_SUCCESS = "https://magento.softwaretestingboard.com/checkout/onepage/success/"
 
@@ -13,40 +13,43 @@ class GuestShippingAddressPage(BasePage):
         super().__init__(driver, url)
 
     def email_field(self):
-        return self.is_visible(GuestShippingAddressPageLocators.EMAIL_FIELD)
+        return self.is_visible(CheckoutPageLocators.EMAIL_FIELD)
 
     def first_name_field(self):
-        return self.is_visible(GuestShippingAddressPageLocators.FIRST_NAME_FIELD)
+        return self.is_visible(CheckoutPageLocators.FIRST_NAME_FIELD)
 
     def last_name_field(self):
-        return self.is_visible(GuestShippingAddressPageLocators.LAST_NAME_FIELD)
+        return self.is_visible(CheckoutPageLocators.LAST_NAME_FIELD)
 
     def street_address_1_field(self):
-        return self.is_visible(GuestShippingAddressPageLocators.STREET_1_FIELD)
+        return self.is_visible(CheckoutPageLocators.STREET_1_FIELD)
 
     def city_field(self):
-        return self.is_visible(GuestShippingAddressPageLocators.CITY_FIELD)
+        return self.is_visible(CheckoutPageLocators.CITY_FIELD)
 
     def postcode_field(self):
-        return self.is_visible(GuestShippingAddressPageLocators.POSTCODE_FIELD)
+        return self.is_visible(CheckoutPageLocators.POSTCODE_FIELD)
 
     def country_dropdown_field(self):
-        return self.is_visible(GuestShippingAddressPageLocators.COUNTRY_FIELD_DROPDOWN)
+        return self.is_visible(CheckoutPageLocators.COUNTRY_FIELD_DROPDOWN)
 
     def state_dropdown_field(self):
-        return self.is_visible(GuestShippingAddressPageLocators.STATE_FIELD_DROPDOWN)
+        return self.is_visible(CheckoutPageLocators.STATE_FIELD_DROPDOWN)
 
     def select_state(self, state):
         return self.is_clickable((By.XPATH, f"//*[@data-title='{state}']")).click()
 
     def select_russia_country(self):
-        return self.is_clickable(GuestShippingAddressPageLocators.RUSSIA_COUNTRY_DROPDOWN)
+        return self.is_clickable(CheckoutPageLocators.RUSSIA_COUNTRY_DROPDOWN)
 
     def phone_number_field(self):
-        return self.is_visible(GuestShippingAddressPageLocators.PHONE_NUMBER_FIELD)
+        return self.is_visible(CheckoutPageLocators.PHONE_NUMBER_FIELD)
 
     def wait_overlay_closed(self):
-        return self.is_invisible(GuestShippingAddressPageLocators.OVERLAY)
+        return self.is_invisible(CheckoutPageLocators.OVERLAY)
+
+    def checkout_button(self):
+        return self.is_clickable(CartLocators.CART_PROCEED_TO_CHECKOUT_BUTTON)
 
     def fill_all_require_field_us_shipping(self,state, email, firstname, lastname, street_1, city, postcode, phone_number):
         self.state_dropdown_field().click()
