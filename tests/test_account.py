@@ -11,15 +11,29 @@ from pages.forgot import ForgotPage
 
 class TestNow(FakeData):
     def test_create_account(self, driver, first_name, last_name, email, password):
-        page = CreateAccountPage(driver)
-        page.first_name = first_name
-        page.last_name = last_name
-        page.email = email
-        page.password_one = password
-        page.password_two = password
-        page.create_account().click()
+        page = CreateAccountPage(driver).create(first_name, last_name, email, password)
+        # page.first_name = first_name
+        # page.last_name = last_name
+        # page.email = email
+        # page.password_one = password
+        # page.password_two = password
+        # page.create_account().click()
         assert page.current_url == AccountPage.URL
         assert page.msg == CreateAccountPage.SUCCESS
+
+    def test_create_second_account_with_same_email(self, driver, create_account, email):
+        LogoutPage(driver)
+        page = CreateAccountPage(driver)
+        # .create(self.first_name, self.last_name, email, self.password)
+        page.first_name = self.first_name
+        page.last_name = self.last_name
+        page.email = email
+        page.password_one = (password := self.password)
+        page.password_two = password
+        page.create_account().click()
+        assert page.current_url == CreateAccountPage.URL
+        # todo add msg_fail
+        # assert page.msg == CreateAccountPage.FAIL
 
     def test_correct_credentials_login(self, driver, create_account, email, password):
         LogoutPage(driver)
