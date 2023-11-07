@@ -12,7 +12,6 @@ class CreateAccountForm(BasePage):
         super().__init__(driver)
         self.current_url = url
 
-
     @property
     def first_name_label(self):
         label = self.is_visible(CreateAccountFormLocators.FIRST_NAME_LABEL).text
@@ -21,8 +20,8 @@ class CreateAccountForm(BasePage):
         return label + ' ' + element.strip('"')
 
     def element_label(self, locator):
-        label = self.is_visible((By.CSS_SELECTOR, "label[for='"+locator+"']")).text
-        script = "return window.getComputedStyle(document.querySelector('label[for=\""+locator+"\"]'),'::after').getPropertyValue('content')"
+        label = self.is_visible((By.CSS_SELECTOR, "label[for='" + locator + "']")).text
+        script = "return window.getComputedStyle(document.querySelector('label[for=\"" + locator + "\"]'),'::after').getPropertyValue('content')"
         element = self.driver.execute_script(script)
         return label + ' ' + element.strip('"')
 
@@ -37,6 +36,8 @@ class CreateAccountPage(Page):
     PASSWORD_CONFIRM = (By.CSS_SELECTOR, "input#password-confirmation")
     CREATE_ACCOUNT = (By.CSS_SELECTOR, "button.action.submit.primary")
     SUCCESS = "Thank you for registering with Main Website Store."
+    FAIL = ("There is already an account with this email address. If you are sure that it is your email address, "
+            "click here to get your password and access your account.")
 
     def __init__(self, driver, url=URL):
         super().__init__(driver)
@@ -73,7 +74,7 @@ class CreateAccountPage(Page):
         return self.is_visible(self.PASSWORD)
 
     @password_one.setter
-    def password_one(self,  val: str):
+    def password_one(self, val: str):
         self.clear_and_send_keys(self.password_one, val)
 
     @property
@@ -81,7 +82,7 @@ class CreateAccountPage(Page):
         return self.is_visible(self.PASSWORD_CONFIRM)
 
     @password_two.setter
-    def password_two(self,  val: str):
+    def password_two(self, val: str):
         self.clear_and_send_keys(self.password_two, val)
 
     def create_account(self):
@@ -96,4 +97,4 @@ class CreateAccountPage(Page):
         self.create_account().click()
         assert self.current_url == AccountPage.URL
         assert self.msg == self.SUCCESS
-
+        return self
