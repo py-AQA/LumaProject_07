@@ -19,6 +19,7 @@ class BasePage:
         self.url = url
 
     def open(self):
+        self.driver.delete_cookie("mage-messages")
         self.driver.get(self.url)
 
     def header(self) -> WebElement:
@@ -42,6 +43,7 @@ class BasePage:
 
     @current_url.setter
     def current_url(self, val) -> None:
+        self.driver.delete_cookie("mage-messages")
         self.driver.get(val)
 
     def clear_and_send_keys(self, el: WebElement, val: str) -> None:
@@ -55,14 +57,6 @@ class BasePage:
         hover.perform()
 
     # ДАНЯ ДОБАВИЛ КОНЕЦ
-
-    @property
-    def myurl(self) -> str:
-        return self.current_url
-
-    @myurl.setter
-    def myurl(self, val) -> None:
-        self.current_url(val)
 
     def window_size(self) -> dict:
         return self.driver.get_window_size()

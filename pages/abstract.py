@@ -56,5 +56,4 @@ class Page(BasePage):
     @property
     def msg(self):
         text = self.is_visible(self.MSG).text
-        sleep(1)
         return text

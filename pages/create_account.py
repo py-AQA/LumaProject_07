@@ -71,5 +71,5 @@ class CreateAccountPage(Page):
         self.password_one = password
         self.password_two = password
         self.create_account().click()
-        assert self.myurl == AccountPage.URL
+        assert self.current_url == AccountPage.URL
         # return AccountPage(self.driver)
