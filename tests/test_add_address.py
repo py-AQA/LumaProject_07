@@ -10,9 +10,7 @@ from pages.sign_in import SignInPage
 
 
 class TestNow(FakeData):
-    def test_add_address_with_select_state(self, driver, first_name, last_name, email, password):
-        LogoutPage(driver)
-        CreateAccountPage(driver).create(first_name, last_name, email, password)
+    def test_add_address_with_select_state(self, driver, create_account):
         page = AddressAddPage(driver)
         page.company = self.company
         page.telephone = self.phone_number
@@ -27,12 +25,11 @@ class TestNow(FakeData):
 
         # page.set_billing.click()
         page.save().click()
-        assert page.msg == AddressAddPage.SUCCESS
-        assert page.current_url == AddressAddPage.URL_DONE
 
-    def test_add_address_with_input_state(self, driver, first_name, last_name, email, password):
-        LogoutPage(driver)
-        CreateAccountPage(driver).create(first_name, last_name, email, password)
+        assert page.current_url == AddressAddPage.URL_DONE
+        assert page.msg == AddressAddPage.SUCCESS
+
+    def test_add_address_with_input_state(self, driver, create_account):
         page = AddressAddPage(driver)
         page.company = self.company
         page.telephone = self.phone_number
@@ -52,5 +49,6 @@ class TestNow(FakeData):
         # page.set_shpping.click()
 
         page.save().click()
-        assert page.msg == AddressAddPage.SUCCESS
+
         assert page.current_url == AddressAddPage.URL_DONE
+        assert page.msg == AddressAddPage.SUCCESS

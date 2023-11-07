@@ -95,4 +95,5 @@ class CreateAccountPage(Page):
         self.password_two = password
         self.create_account().click()
         assert self.current_url == AccountPage.URL
-        # return AccountPage(self.driver)
+        assert self.msg == self.SUCCESS
+

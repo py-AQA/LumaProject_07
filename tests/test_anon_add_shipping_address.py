@@ -19,7 +19,7 @@ class TestNow(FakeData):
 
     @pytest.mark.xfail
     def test_anon_add_shipping_address_with_select_state(self, driver):
-        LogoutPage(driver)
+        # LogoutPage(driver)
 
         page = ItemDetailsPage(driver)
         page.add_to_cart().click()

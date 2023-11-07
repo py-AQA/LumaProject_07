@@ -1,6 +1,8 @@
 import pytest
 from faker import Faker
 
+from pages.create_account import CreateAccountPage
+
 
 @pytest.fixture
 def first_name():
@@ -20,3 +22,9 @@ def email():
 @pytest.fixture
 def password():
     return Faker().password()
+
+
+@pytest.fixture
+def create_account(driver, first_name, last_name, email, password):
+    CreateAccountPage(driver).create(first_name, last_name, email, password)
+
