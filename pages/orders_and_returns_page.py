@@ -69,6 +69,14 @@ class OrdersAndReturnsPage(BasePage):
         self.billing_zip_code_field().send_keys(zip_code)
         return self
 
+    def find_order_by_email(self,order_id, billing_lastname, postcode):
+        self.fill_all_field_with_email(order_id, billing_lastname, postcode)
+        self.continue_button().click()
+
+    def find_order_by_postcode(self,order_id, billing_lastname, postcode):
+        self.fill_all_field_with_postcode(order_id, billing_lastname, postcode)
+        self.continue_button().click()
+
     def order_id_not_filled(self, billing_lastname, email):
         return self.fill_all_field_with_email(order_id='', email=email, billing_lastname=billing_lastname)
 
