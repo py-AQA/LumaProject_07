@@ -1,5 +1,3 @@
-from time import sleep
-
 from base.base_page import BasePage
 from data.locators import GuestShippingAddressPageLocators, CartLocators
 
@@ -37,6 +35,9 @@ class GuestShippingAddressPage(BasePage):
     def phone_number_field(self):
         return self.is_visible(GuestShippingAddressPageLocators.PHONE_NUMBER_FIELD)
 
+    def wait_overlay_closed(self):
+        return self.is_disappeared(GuestShippingAddressPageLocators.OVERLAY)
+
     def fill_all_require_field(self, email, firstname, lastname, street_1, city, zip_code, phone_number):
         self.country_dropdown_field().click()
         self.select_russia_country().click()
@@ -73,7 +74,7 @@ class GuestShippingAddressPage(BasePage):
         self.fill_all_require_field(email, firstname, lastname, street_1, city, zip_code, phone_number)
         self.select_flat_rate_shipping().click()
         self.step_2_next_button().click()
-        sleep(6)
+        self.wait_overlay_closed()
         self.place_order_button().click()
         order_id = self.order_number().text
         assert self.current_url == "https://magento.softwaretestingboard.com/checkout/onepage/success/"
