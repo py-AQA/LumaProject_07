@@ -20,7 +20,7 @@ class TestNow(FakeData):
         page.password_two = password
         page.create_account().click()
         assert page.msg == CreateAccountPage.SUCCESS
-        assert page.myurl == AccountPage.URL
+        assert page.current_url == AccountPage.URL
 
     def test_correct_credentials_login(self, driver, first_name, last_name, email, password):
         LogoutPage(driver)

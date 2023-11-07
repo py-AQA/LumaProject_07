@@ -28,7 +28,7 @@ class TestNow(FakeData):
         # page.set_billing.click()
         page.save().click()
         assert page.msg == AddressAddPage.SUCCESS
-        assert page.myurl == AddressAddPage.URL_DONE
+        assert page.current_url == AddressAddPage.URL_DONE
 
     def test_add_address_with_input_state(self, driver, first_name, last_name, email, password):
         LogoutPage(driver)
