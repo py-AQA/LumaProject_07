@@ -71,6 +71,15 @@ class MyAccountPageLocators:
     #ДОБАВИЛ ДАНЯ КОНЕЦ
 
 
+class CreateAccountFormLocators:
+    # FIRST_NAME_LABEL = (By.CSS_SELECTOR, ".field-name-firstname")
+    FIRST_NAME_LABEL = (By.CSS_SELECTOR, "label[for='firstname']")
+    LAST_NAME_LABEL = (By.CSS_SELECTOR, "label[for='lastname']")
+    EMAIL_LABEL = (By.CSS_SELECTOR, "label[for='email_address']")
+    PASSWORD_LABEL = (By.CSS_SELECTOR, "label[for='password']")
+    CONFIRM_PASSWORD_LABEL = (By.CSS_SELECTOR, "label[for='password-confirmation']")
+
+
 class ResetPageLocators:
     URL = 'https://magento.softwaretestingboard.com/customer/account/login'
     FORGOT_PASS_URL = 'https://magento.softwaretestingboard.com/customer/account/forgotpassword/'
