@@ -15,15 +15,16 @@ class MainPageLocators:
     LINK_MY_ACCOUNT = (By.XPATH, "(//*[@href='https://magento.softwaretestingboard.com/customer/account/'])[1]")
     LINK_MY_WISH = (By.XPATH, "(//*[@href='https://magento.softwaretestingboard.com/wishlist/'])[1]")
     LINK_SIGN_OUT = (By.XPATH, "(//*[@href='https://magento.softwaretestingboard.com/customer/account/logout/'])[1]")
-    #ДОБАВИЛ ДАНЯ
+    # ДОБАВИЛ ДАНЯ
     LINK_CART = (By.XPATH, "//*[@class='minicart-wrapper']")
-    CHECKOUT_BUTTON_LINK_CART = (By.XPATH,"//*[@id='top-cart-btn-checkout']")
-    LINK_GEAR_CATALOG = (By.XPATH,"//*[@ID='ui-id-6']")
-    LINK_WATCHES_CATALOG =(By.XPATH,"//*[@ID='ui-id-27']")
-    ADD_TO_CART_BOLO_SPORT_WATCH_BUTTON = (By.XPATH, "(//div[@class='product details product-item-details']//button[@title='Add to Cart'])[3]")
-    HOLD_LINK_BOLO_SPORT_WATCH = (By.XPATH,"(//div[@class='product details product-item-details'])[3]")
+    CHECKOUT_BUTTON_LINK_CART = (By.XPATH, "//*[@id='top-cart-btn-checkout']")
+    LINK_GEAR_CATALOG = (By.XPATH, "//*[@ID='ui-id-6']")
+    LINK_WATCHES_CATALOG = (By.XPATH, "//*[@ID='ui-id-27']")
+    ADD_TO_CART_BOLO_SPORT_WATCH_BUTTON = (
+    By.XPATH, "(//div[@class='product details product-item-details']//button[@title='Add to Cart'])[3]")
+    HOLD_LINK_BOLO_SPORT_WATCH = (By.XPATH, "(//div[@class='product details product-item-details'])[3]")
     URL_CART = "https://magento.softwaretestingboard.com/checkout/cart/"
-    #ДАНЯ КОНЕЦ
+    # ДАНЯ КОНЕЦ
 
 
 class LoginPageLocators:
@@ -49,7 +50,7 @@ class MyAccountPageLocators:
     NEW_PASSWORD = (By.CSS_SELECTOR, '#password')
     CONFIRM_NEW_PASSWORD = (By.CSS_SELECTOR, '#password-confirmation')
 
-    #ДОБАВИЛ ДАНЯ
+    # ДОБАВИЛ ДАНЯ
     MY_ACCOUNT_BUTTON = (By.XPATH, "(//ul[@class='nav items']/li)[1]")
     MY_ORDERS_BUTTON = (By.XPATH, "(//ul[@class='nav items']/li)[2]")
     MY_DOWNLOADABLE_PRODUCTS_BUTTON = (By.XPATH, "(//ul[@class='nav items']/li)[3]")
@@ -58,7 +59,7 @@ class MyAccountPageLocators:
     ACCOUNT_INFORMATION_BUTTON = (By.XPATH, "(//ul[@class='nav items']/li)[7]")
     STORED_PAYMENT_METHODS_BUTTON = (By.XPATH, "(//ul[@class='nav items']/li)[8]")
     MY_PRODUCT_REVIEWS_BUTTON = (By.XPATH, "(//ul[@class='nav items']/li)[10]")
-    #ВРЕМЕННО URLS
+    # ВРЕМЕННО URLS
     URL_MY_ACCOUNT = "https://magento.softwaretestingboard.com/customer/account/"
     URL_MY_ORDERS = "https://magento.softwaretestingboard.com/sales/order/history/"
     URL_MY_DOWNLOADABLE_PRODUCTS = "https://magento.softwaretestingboard.com/downloadable/customer/products/"
@@ -68,7 +69,7 @@ class MyAccountPageLocators:
     URL_ACCOUNT_INFORMATION = "https://magento.softwaretestingboard.com/customer/account/edit/"
     URL_STORED_PAYMENT_METHODS = "https://magento.softwaretestingboard.com/vault/cards/listaction/"
     URL_MY_PRODUCT_REVIEW = "https://magento.softwaretestingboard.com/review/customer/"
-    #ДОБАВИЛ ДАНЯ КОНЕЦ
+    # ДОБАВИЛ ДАНЯ КОНЕЦ
 
 
 class CreateAccountFormLocators:
@@ -111,7 +112,7 @@ class WishListPageLocators:
     ITEM_13740 = (By.CSS_SELECTOR, ".products-grid a[title='Breathe-Easy Tank']")
 
 
-#ДОБАВИЛ ДАНЯ
+# ДОБАВИЛ ДАНЯ
 class OrdersAndReturnsPageLocators:
     ORDER_ID_FIELD = (By.XPATH, "//*[@id='oar-order-id']")
     ORDER_ID_FIELD_MESSAGE_ERROR = (By.XPATH, "//*[@id='oar-order-id-error']")
@@ -119,38 +120,38 @@ class OrdersAndReturnsPageLocators:
     BILLING_LASTNAME_FIELD = (By.XPATH, "//*[@id='oar-billing-lastname']")
     BILLING_LASTNAME_FIELD_MESSAGE_ERROR = (By.XPATH, "//*[@id='oar-billing-lastname-error']")
 
-    FIND_ORDER_BY_DROPDOWN = (By.XPATH,"//*[@id='quick-search-type-id']")
-    FIND_ORDER_BY_EMAIL_DROPDOWN = (By.XPATH,"//option[@value='email']")
-    FIND_ORDER_BY_ZIP_CODE_DROPDOWN = (By.XPATH, "//option[@value='zip']")
+    FIND_ORDER_BY_DROPDOWN = (By.XPATH, "//*[@id='quick-search-type-id']")
+    FIND_ORDER_BY_EMAIL_DROPDOWN = (By.XPATH, "//option[@value='email']")
+    FIND_ORDER_BY_POSTCODE_DROPDOWN = (By.XPATH, "//option[@value='zip']")
 
-    EMAIL_FIELD = (By.XPATH,"//*[@id='oar_email']")
+    EMAIL_FIELD = (By.XPATH, "//*[@id='oar_email']")
     EMAIL_FIELD_MESSAGE_ERROR = (By.XPATH, "//*[@id='oar_email-error']")
-    NAME_EMAIL_FIELD = (By.XPATH,"//label[@for='oar_email']")
+    NAME_EMAIL_FIELD = (By.XPATH, "//label[@for='oar_email']")
 
-    ZIP_FIELD = (By.XPATH,"//*[@id='oar_zip']")
-    ZIP_FIELD_MESSAGE_ERROR = (By.XPATH, "//*[@id='oar_zip-error']")
-    NAME_ZIP_CODE_FIELD = (By.XPATH, "//label[@for='oar_zip']")
+    POSTCODE_FIELD = (By.XPATH, "//*[@id='oar_zip']")
+    POSTCODE_FIELD_MESSAGE_ERROR = (By.XPATH, "//*[@id='oar_zip-error']")
+    NAME_POSTCODE_FIELD = (By.XPATH, "//label[@for='oar_zip']")
 
     CONTINUE_BUTTON = (By.XPATH, "//*[@title='Continue']")
 
     TEXT_ERROR_MESSAGE_FIELD_NOT_FIELD = "This is a required field."
     TEXT_ERROR_MESSAGE_EMAIL_TYPE = "Please enter a valid email address (Ex: johndoe@domain.com)."
-    TEXT_NAME_ZIP_CODE_FIELD = "Billing ZIP Code"
+    TEXT_NAME_POSTCODE_FIELD = "Billing ZIP Code"
     TEXT_NAME_EMAIL_FIELD = "Email"
 
-    ORDER_NUMBER_ON_CHECK_PAGE = (By.XPATH,"//span[@class='base']")
+    ORDER_NUMBER_ON_CHECK_PAGE = (By.XPATH, "//span[@class='base']")
 
 
 class GuestShippingAddressPageLocators:
-
     EMAIL_FIELD = (By.XPATH, "//div[@class='field required']//*[@id='customer-email']")
-    FIRST_NAME_FIELD = (By.XPATH , "//*[@name='firstname']")
+    FIRST_NAME_FIELD = (By.XPATH, "//*[@name='firstname']")
     LAST_NAME_FIELD = (By.XPATH, "//*[@name='lastname']")
     STREET_1_FIELD = (By.XPATH, "//*[@name='street[0]']")
     CITY_FIELD = (By.XPATH, "//*[@name='city']")
     COUNTRY_FIELD_DROPDOWN = (By.XPATH, "//*[@name='country_id']")
+    STATE_FIELD_DROPDOWN = (By.XPATH, "//*[@name='region_id']")
     RUSSIA_COUNTRY_DROPDOWN = (By.XPATH, "//*[@data-title='Russia']")
-    ZIP_CODE_FIELD = (By.XPATH, "//*[@name='postcode']")
+    POSTCODE_FIELD = (By.XPATH, "//*[@name='postcode']")
     PHONE_NUMBER_FIELD = (By.XPATH, "//*[@name='telephone']")
 
     SHIPPING_BEST_WAY = (By.XPATH, "//*[@id='label_carrier_bestway_tablerate']")
@@ -165,11 +166,7 @@ class GuestShippingAddressPageLocators:
     OVERLAY = (By.XPATH, "//*[@data-role='loader']")
 
 
-
 class CartLocators:
-
     CART_PROCEED_TO_CHECKOUT_BUTTON = (By.XPATH, "//div[@class='cart-summary']//*[@title='Proceed to Checkout']")
 
-
-#ДОБАВИЛ ДАНЯ КОНЕЦ
-
+# ДОБАВИЛ ДАНЯ КОНЕЦ
