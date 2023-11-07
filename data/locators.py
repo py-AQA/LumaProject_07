@@ -153,6 +153,8 @@ class GuestShippingAddressPageLocators:
     CHECKOUT_STEP_2_NEXT_BUTTON = (By.XPATH, "//*[@class='button action continue primary']")
     PLACE_ORDER_BUTTON = (By.XPATH, "//button[@title='Place Order']")
 
+    OVERLAY = (By.XPATH, "//*[@data-role='loader']")
+
 
 
 class CartLocators:
