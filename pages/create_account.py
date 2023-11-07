@@ -1,6 +1,30 @@
 from selenium.webdriver.common.by import By
+from base.base_page import BasePage
 from pages.abstract import Page
 from pages.account import AccountPage
+from data.locators import CreateAccountFormLocators
+
+
+class CreateAccountForm(BasePage):
+    URL = "https://magento.softwaretestingboard.com/customer/account/create/"
+
+    def __init__(self, driver, url=URL):
+        super().__init__(driver)
+        self.current_url = url
+
+
+    @property
+    def first_name_label(self):
+        label = self.is_visible(CreateAccountFormLocators.FIRST_NAME_LABEL).text
+        script = "return window.getComputedStyle(document.querySelector('label[for=\"firstname\"]'),'::after').getPropertyValue('content')"
+        element = self.driver.execute_script(script)
+        return label + ' ' + element.strip('"')
+
+    def element_label(self, locator):
+        label = self.is_visible((By.CSS_SELECTOR, "label[for='"+locator+"']")).text
+        script = "return window.getComputedStyle(document.querySelector('label[for=\""+locator+"\"]'),'::after').getPropertyValue('content')"
+        element = self.driver.execute_script(script)
+        return label + ' ' + element.strip('"')
 
 
 class CreateAccountPage(Page):
@@ -12,7 +36,6 @@ class CreateAccountPage(Page):
     PASSWORD = (By.CSS_SELECTOR, "input#password")
     PASSWORD_CONFIRM = (By.CSS_SELECTOR, "input#password-confirmation")
     CREATE_ACCOUNT = (By.CSS_SELECTOR, "button.action.submit.primary")
-
     SUCCESS = "Thank you for registering with Main Website Store."
 
     def __init__(self, driver, url=URL):
