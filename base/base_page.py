@@ -7,9 +7,9 @@ from data.locators import BasePageLocators
 from selenium.webdriver.common.action_chains import ActionChains
 
 
-
 class BasePage:
     URL = "about:blank"
+    TIMEOUT = 10
 
     def __init__(self, driver, url=URL):
         self.driver = driver
@@ -22,17 +22,17 @@ class BasePage:
     def header(self) -> WebElement:
         return self.is_visible(BasePageLocators.HEADER)
 
-    def is_visible(self, locator: (str, str), timeout: int = 10) -> WebElement:
+    def is_visible(self, locator: (str, str), timeout: int = TIMEOUT) -> WebElement:
         try:
             return wait(self.driver, timeout).until(EC.visibility_of_element_located(locator))
         except TimeoutException:
-            print(f"Timeout: Element located by {locator} not visible after {timeout}s")
+            raise AssertionError(f"{timeout}s wait to be visible of {locator}")
 
-    def is_clickable(self, locator: tuple[str, str], timeout: int = 10) -> WebElement:
+    def is_clickable(self, locator: tuple[str, str], timeout: int = TIMEOUT) -> WebElement:
         try:
             return wait(self.driver, timeout).until(EC.element_to_be_clickable(locator))
         except TimeoutException:
-            print(f"Timeout: Element located by {locator} not clickable after {timeout}s")
+            raise AssertionError(f"{timeout}s wait to be clickable of {locator}")
 
     @property
     def current_url(self):
@@ -49,27 +49,21 @@ class BasePage:
 
     # ДАНЯ ДОБАВИЛ
     def hold_mouse_on_element(self, locator):
-        element_to_hover_over = wait(self.driver, timeout=15).until(EC.visibility_of_element_located(locator))
-        hover = ActionChains(self.driver).move_to_element(element_to_hover_over)
-        hover.perform()
-
-    #ПРОВЕРЯЕМ ЧТО ЭЛЕМЕНТ ИСЧЕЗ СО СТРАНИЦЫ
-    def is_disappeared(self, locator):
-        return wait(self.driver, timeout=6).until(EC.invisibility_of_element_located(locator))
+        ActionChains(self.driver).move_to_element(self.is_visible(locator)).perform()
 
     # ДАНЯ ДОБАВИЛ КОНЕЦ
 
     def window_size(self) -> dict:
         return self.driver.get_window_size()
 
-    def is_not_visible(self, locator: (str, str), timeout: int = 15) -> WebElement:
+    def is_invisible(self, locator: (str, str), timeout: int = TIMEOUT) -> WebElement:
         try:
             return wait(self.driver, timeout).until(EC.invisibility_of_element_located(locator))
-        except TimeoutException as e:
-            print(f"Timeout: Element located by {locator} still visible after {timeout}s")
+        except TimeoutException:
+            raise AssertionError(f"{timeout}s wait to be invisible of {locator}")
 
-    def are_present(self, locator: tuple[str, str], timeout: int = 15) -> list[WebElement]:
+    def is_all_present(self, locator: tuple[str, str], timeout: int = TIMEOUT) -> list[WebElement]:
         try:
             return wait(self.driver, timeout).until(EC.presence_of_all_elements_located(locator))
-        except TimeoutException as e:
-            print(f"Timeout: Elements located by {locator} not present after {timeout}s")
+        except TimeoutException:
+            raise AssertionError(f"{timeout}s wait all to be present of {locator}")

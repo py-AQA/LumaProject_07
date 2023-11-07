@@ -36,7 +36,7 @@ class GuestShippingAddressPage(BasePage):
         return self.is_visible(GuestShippingAddressPageLocators.PHONE_NUMBER_FIELD)
 
     def wait_overlay_closed(self):
-        return self.is_disappeared(GuestShippingAddressPageLocators.OVERLAY)
+        return self.is_invisible(GuestShippingAddressPageLocators.OVERLAY)
 
     def fill_all_require_field(self, email, firstname, lastname, street_1, city, zip_code, phone_number):
         self.country_dropdown_field().click()

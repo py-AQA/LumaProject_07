@@ -33,7 +33,7 @@ class Footer(Page):
     BACKGROUND_COLOR = "#ff0101"
 
     def links(self):
-        return self.are_present(self.ALL_LINKS)
+        return self.is_all_present(self.ALL_LINKS)
 
     def el(self):
         return self.is_clickable(self.LOCATOR)

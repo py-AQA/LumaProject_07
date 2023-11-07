@@ -144,5 +144,5 @@ class AnonShippigAddressAddPage(Page):
         Select(self.is_clickable(self.COUNTRY)).select_by_value(val)
 
     def button_next(self):
-        self.is_not_visible(self.LD_PAYMENT_METHOD)
+        self.is_invisible(self.LD_PAYMENT_METHOD)
         return self.is_clickable(self.BUTTON_NEXT)
