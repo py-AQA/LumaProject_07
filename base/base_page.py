@@ -4,11 +4,8 @@ from selenium.webdriver.support.ui import WebDriverWait as wait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.remote.webelement import WebElement
 from data.locators import BasePageLocators
-# ДАНЯ ДОБАВИЛ
 from selenium.webdriver.common.action_chains import ActionChains
 
-
-# ДАНЯ ДОБАВИЛ КОНЕЦ
 
 
 class BasePage:
@@ -55,6 +52,10 @@ class BasePage:
         element_to_hover_over = wait(self.driver, timeout=15).until(EC.visibility_of_element_located(locator))
         hover = ActionChains(self.driver).move_to_element(element_to_hover_over)
         hover.perform()
+
+    #ПРОВЕРЯЕМ ЧТО ЭЛЕМЕНТ ИСЧЕЗ СО СТРАНИЦЫ
+    def is_disappeared(self, locator):
+        return wait(self.driver, timeout=6).until(EC.invisibility_of_element_located(locator))
 
     # ДАНЯ ДОБАВИЛ КОНЕЦ
 
