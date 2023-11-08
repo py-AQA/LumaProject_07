@@ -11,6 +11,8 @@ from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from pages.login_page import LoginPage
 from pages.main_page import MainPage
 
+# GITHUB_ACTIONS local env var 4 testing purposes
+environ["GITHUB_ACTIONS"] = "true"
 GRID_URL = "http://localhost:4444/wd/hub"
 
 
@@ -92,6 +94,7 @@ def driver(request, browser, place, options):
 
     # driver for GITHUB_ACTIONS driver setup
     if environ.get('GITLAB_CI') or environ.get('GITHUB_ACTIONS') == 'true':
+        # raise AssertionError('WE are HERE')
         options = webdriver.ChromeOptions()
         options.add_argument('--headless')  # Run Chrome in headless mode.
         options.add_argument('--no-sandbox')  # Bypass OS security model
