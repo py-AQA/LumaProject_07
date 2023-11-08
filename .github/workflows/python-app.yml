@@ -2,9 +2,9 @@ name: Python
 
 on:
   push:
-    branches: [ "*" ]
+    branches: [ "off*" ]
   pull_request:
-    branches: [ "*" ]
+    branches: [ "off*" ]
 
 permissions:
   contents: read
