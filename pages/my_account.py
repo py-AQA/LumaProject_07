@@ -4,8 +4,8 @@ from data.locators import MyAccountPageLocators
 
 
 class MyAccountPage(BasePage):
-    def __init__(self, driver, url=MyAccountPageLocators.URL):
-        super().__init__(driver, url)
+    def __init__(self, driver, url=MyAccountPageLocators.URL, open=True):
+        super().__init__(driver, url, open)
 
     def edit_account(self) -> WebElement:
         return self.is_clickable(MyAccountPageLocators.EDIT_ACCOUNT)
