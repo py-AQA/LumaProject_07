@@ -1,5 +1,6 @@
 from time import sleep
 from selenium.common import TimeoutException
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait as wait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.remote.webelement import WebElement
@@ -10,6 +11,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 class BasePage:
     URL = "about:blank"
     TIMEOUT = 10
+    LOADER = (By.CSS_SELECTOR, "div.loader")
 
     def __init__(self, driver, url=URL):
         self.driver = driver
@@ -67,3 +69,17 @@ class BasePage:
             return wait(self.driver, timeout).until(EC.presence_of_all_elements_located(locator))
         except TimeoutException:
             raise AssertionError(f"{timeout}s wait all to be present of {locator}")
+
+    def is_present(self, locator: tuple[str, str], timeout: int = TIMEOUT) -> bool:
+        try:
+            wait(self.driver, timeout).until(EC.presence_of_element_located(locator))
+            return True
+        except TimeoutException:
+            return False
+
+    def is_loading(self):
+        while self.is_present(self.LOADER, 0.1):
+            print(f'loader {self.LOADER} is present: waiting to dissapear .... ')
+            self.is_invisible(self.LOADER)
+        else:
+            print(f'loader {self.LOADER} is NOT present: gtg .... ')

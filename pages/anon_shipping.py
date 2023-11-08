@@ -3,14 +3,12 @@ from pages.abstract import Page
 from selenium.webdriver.support.ui import Select
 
 
-class AnonShippigAddressAddPage(Page):
+class AnonShippingAddressAddPage(Page):
     WITH_REGIONS = ["AU","BR","CA","CH","CN","CO","EE","ES","HR","IN","LT","LV","MX","PL","RO","US"]
     URL = "https://magento.softwaretestingboard.com/checkout/#shipping"
     URL_DONE = "https://magento.softwaretestingboard.com/checkout/#payment"
 
-    EMAIL = (By.CSS_SELECTOR,"input#customer-email")
-
-    LD_SHIPPING_ADDRESS = (By.CSS_SELECTOR, "li.checkout-shipping-address")
+    EMAIL = (By.CSS_SELECTOR, "input#customer-email")
 
     FIRST_NAME = (By.CSS_SELECTOR, 'input[name="firstname"]')
     LAST_NAME = (By.CSS_SELECTOR, 'input[name="lastname"]')
@@ -22,7 +20,7 @@ class AnonShippigAddressAddPage(Page):
     # STATE and REGION share same place
     # select STATE is for states with regions
     STATE = (By.CSS_SELECTOR, 'select[name="region_id"]')
-    # input REGION if for staes with regions
+    # input REGION if for states with regions
     REGION = (By.CSS_SELECTOR, 'input[name="region"]')
     ZIP = (By.CSS_SELECTOR, 'input[name="postcode"]')
     COUNTRY = (By.CSS_SELECTOR, 'select[name="country_id"]')
@@ -31,8 +29,6 @@ class AnonShippigAddressAddPage(Page):
     BUTTON_NEXT = (By.CSS_SELECTOR, "button.continue")
 
     LD_PAYMENT_METHOD = (By.CSS_SELECTOR, "li.checkout-payment-method")
-
-    # SUCCESS = "You saved the address."
 
     def __init__(self, driver, url=URL):
         super().__init__(driver)

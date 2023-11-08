@@ -6,7 +6,7 @@ import pytest
 from data.fake_data import FakeData
 from pages.abstract import Page
 from pages.account import AccountPage
-from pages.anon_shipping import AnonShippigAddressAddPage
+from pages.anon_shipping import AnonShippingAddressAddPage
 from pages.create_account import CreateAccountPage
 from pages.account_edit import AccountEditPage
 from pages.home import HomePage
@@ -19,21 +19,21 @@ class TestNow(FakeData):
 
     @pytest.mark.xfail
     def test_anon_add_shipping_address_with_select_state(self, driver):
-        # LogoutPage(driver)
-
         page = ItemDetailsPage(driver)
         page.add_to_cart().click()
         assert page.msg == ItemDetailsPage.SUCCESS
 
-        page = AnonShippigAddressAddPage(driver)
+        page = AnonShippingAddressAddPage(driver)
+        page.is_loading()
+
         page.email = self.email
+        page.is_loading()
+
         page.first_name = self.first_name
-
         page.last_name = self.last_name
-
         page.company = self.company
 
-        page.country = choice(AnonShippigAddressAddPage.WITH_REGIONS)
+        page.country = choice(AnonShippingAddressAddPage.WITH_REGIONS)
         page.state = (state := choice(page.state[1:]))
         page.city = (city := self.city)
         page.postcode = (postcode := self.postcode)
@@ -41,12 +41,14 @@ class TestNow(FakeData):
         page.street_2 = self.street_address
         page.street_3 = f"{city} {state} {postcode}"
         page.telephone = self.phone_number
+        page.is_loading()
 
-        sleep(5)
         page.button_next().click()
+        page.is_loading()
+
         # assert page.msg == AnonShippigAddressAddPage.SUCCESS
         # assert page.url == AnonShippigAddressAddPage.URL_DONE
-        sleep(20)
+
 
     @pytest.mark.skip
     def test_anon_add_shipping_address_with_input_state(self, driver):

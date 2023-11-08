@@ -1,0 +1,57 @@
+todo: decide most_important_pages are [main, catalog, several items, order, checkout, ... ]
+todo: decide most_important_user_flow is [main -> view item -> add to cart -> checkout ]
+
+===US 001: (update cart or minicart + anon checkout) | As a User, I want to be able to:
+
+хотелки:
+navigate through site pages  [check most_important_pages, most_important_user_flow]
+make order without be logged [check most_important_user_flow]
+
+AC:
+todo: in the right upper corner to see link "Sign in". [visible, clickable] on [chk on most_important_pages]
+todo: user have access to *any[most_important_pages] page of the site Home Page
+todo: make order without be logged [most_important_user_flow]
+
+    navigate to item\items:
+        several methods
+        ...
+    add items to the cart:
+        add from big item
+        add with low qty
+	    add with right qty
+	    color/without
+	    size/without
+	    ...
+        add from small item
+    cart manipulation:
+        change item in the cart; [can we delete\edit cart item]
+        remove from cart
+        change item qty in minicart
+        button "update" visible after change
+        button "update" click saves changes
+            display message
+		    changed data visible and realy changed
+        button trash removes
+		    item not preset after removal
+		...
+        button pencil redirect to item details page
+    on big_item page
+	    choose\change item color
+	    choose\change item size
+        change item
+    able to make order and pay it; [go to checkout]
+        fill the shipping (checkout step one)
+        choose shipping method(step one.one)
+        payment address are the same ...
+        payment address are NOT the same ...
+	        enter payment address
+	    update
+	    cancel
+	    place order
+        discount code check
+        place order ->
+    success: https://magento.softwaretestingboard.com/checkout/onepage/success/
+	    chk Your order # is: 000028654.
+	    chl email
+	    chk empty shopping cart
+---

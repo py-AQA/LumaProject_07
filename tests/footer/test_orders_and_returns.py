@@ -38,7 +38,7 @@ class TestCheckOrder(FakeData):
                                                            postcode,
                                                            self.phone_number)
         orders_and_returns_page = OrdersAndReturnsPage(driver)
-        orders_and_returns_page.fill_all_field_with_postcode(order_id,last_name,postcode)
+        orders_and_returns_page.fill_all_field_with_postcode(order_id, last_name, postcode)
         orders_and_returns_page.continue_button().click()
         assert orders_and_returns_page.text_order_number_on_check_page().text == f"Order # {order_id}"
 

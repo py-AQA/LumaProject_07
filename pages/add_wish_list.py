@@ -11,7 +11,9 @@ class ItemToWishList(BasePage):
         super().__init__(driver, url)
 
     def add_item_to_wish_list(self):
-        return self.is_clickable(ItemPageLocators.ADD_TO_WISH_LIST)
+        el = self.is_clickable(ItemPageLocators.ADD_TO_WISH_LIST)
+        self.is_loading()
+        return el
 
     @property
     def success_message(self) -> str:

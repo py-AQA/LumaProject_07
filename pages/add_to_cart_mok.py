@@ -14,4 +14,6 @@ class ItemDetailsPage(Page):
         self.current_url = url
 
     def add_to_cart(self):
-        return self.is_clickable(self.ADD_TO_CART)
+        el = self.is_clickable(self.ADD_TO_CART)
+        self.is_loading()
+        return el
