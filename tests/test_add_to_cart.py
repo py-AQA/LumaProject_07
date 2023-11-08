@@ -42,6 +42,7 @@ class TestNegativeQuantity:
         assert page.error_quantity_msg().text == 'Please enter a quantity greater than 0.'
 
     def test_add_more_than_maximum_items(self, driver):
+        # todo sometimes fails - to check for loaders later
         page = MainPage(driver, 'https://magento.softwaretestingboard.com/sprite-yoga-companion-kit.html')
         page.add_more_than_maximum_items_to_cart()
         assert page.error_quantity_msg().text == 'The maximum you may purchase is 10000.'
