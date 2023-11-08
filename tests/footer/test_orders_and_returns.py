@@ -1,22 +1,23 @@
 from data.fake_data import FakeData
 from data.locators import OrdersAndReturnsPageLocators
-from pages.guest_shipping_address_page import GuestShippingAddressPage
+from pages.checkout_page import CheckoutPage
+from pages.create_account import CreateAccountPage
 from pages.main_page import MainPage
 from pages.orders_and_returns_page import OrdersAndReturnsPage
 
 
 # ВОЗМОЖНО НУЖНО УСОВЕРШЕНСТВОВАТЬ
-class TestCheckOrder(FakeData):
+class TestCheckGuestOrder(FakeData):
     # ФУНКЦИЯ ВЕШАЕТ РАНДОМНЫЙ ОРДЕР И ПРОВЕРЯЕТ ЕГО В БАЗЕ ПО ЕМЕЙЛУ
-    def test_check_order_by_email(self, driver , ):
-        page = MainPage(driver)
-        page.open()
-        page.add_bolo_sport_watch_to_cart()
-        checkout_page = GuestShippingAddressPage(driver)
+    def test_check_order_by_email(self, driver):
         email = self.email
         last_name = self.last_name
         state = self.state
-        order_id = checkout_page.full_guest_place_order_us(state,email, self.first_name,
+        page = MainPage(driver)
+        page.open()
+        page.add_item_from_gear_watches_catalog_to_cart(6)
+        checkout_page = CheckoutPage(driver)
+        order_id = checkout_page.full_guest_place_order_us_address(state,email, self.first_name,
                                                            last_name,self.street_address, self.city,
                                                            self.us_postcode_state(state),
                                                            self.phone_number)
@@ -26,14 +27,52 @@ class TestCheckOrder(FakeData):
 
     # ФУНКЦИЯ ВЕШАЕТ РАНДОМНЫЙ ОРДЕР И ПРОВЕРЯЕТ ЕГО В БАЗЕ ПО ИНДЕКСУ ПОЧТОВОМУ
     def test_check_order_by_zip(self, driver):
-        page = MainPage(driver)
-        page.open()
-        page.add_bolo_sport_watch_to_cart()
-        checkout_page = GuestShippingAddressPage(driver)
         last_name = self.last_name
         state = self.state
         postcode = self.us_postcode_state(state)
-        order_id = checkout_page.full_guest_place_order_us(state, self.email, self.first_name,
+        page = MainPage(driver)
+        page.open()
+        page.add_item_from_gear_bags_catalog_to_cart(6)
+        checkout_page = CheckoutPage(driver)
+        order_id = checkout_page.full_guest_place_order_us_address(state, self.email, self.first_name,
+                                                           last_name, self.street_address, self.city,
+                                                           postcode,
+                                                           self.phone_number)
+        orders_and_returns_page = OrdersAndReturnsPage(driver)
+        orders_and_returns_page.fill_all_field_with_postcode(order_id,last_name,postcode)
+        orders_and_returns_page.continue_button().click()
+        assert orders_and_returns_page.text_order_number_on_check_page().text == f"Order # {order_id}"
+
+class TestCheckUserOrder(FakeData):
+    # ФУНКЦИЯ ВЕШАЕТ РАНДОМНЫЙ ОРДЕР И ПРОВЕРЯЕТ ЕГО В БАЗЕ ПО ЕМЕЙЛУ
+    def test_check_order_by_email(self, driver):
+        email = self.email
+        last_name = self.last_name
+        state = self.state
+        page = CreateAccountPage(driver)
+        page.create(self.first_name,last_name,email,self.password)
+        MainPage(driver).add_item_from_gear_watches_catalog_to_cart(4)
+        checkout_page = CheckoutPage(driver)
+        order_id = checkout_page.full_user_place_order_flat_rate(state,self.street_address, self.city,
+                                                           self.us_postcode_state(state),
+                                                           self.phone_number)
+        print(order_id)
+        MainPage(driver).dropdown().click()
+        MainPage(driver).link_sign_out().click()
+        orders_and_returns_page = OrdersAndReturnsPage(driver)
+        orders_and_returns_page.find_order_by_email(order_id,last_name,email)
+        assert orders_and_returns_page.text_order_number_on_check_page().text == f"Order # {order_id}"
+
+    # ФУНКЦИЯ ВЕШАЕТ РАНДОМНЫЙ ОРДЕР И ПРОВЕРЯЕТ ЕГО В БАЗЕ ПО ИНДЕКСУ ПОЧТОВОМУ
+    def test_check_order_by_zip(self, driver):
+        last_name = self.last_name
+        state = self.state
+        postcode = self.us_postcode_state(state)
+        page = MainPage(driver)
+        page.open()
+        page.add_item_from_gear_bags_catalog_to_cart(6)
+        checkout_page = CheckoutPage(driver)
+        order_id = checkout_page.full_guest_place_order_us_address(state, self.email, self.first_name,
                                                            last_name, self.street_address, self.city,
                                                            postcode,
                                                            self.phone_number)

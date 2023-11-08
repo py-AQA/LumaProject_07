@@ -16,13 +16,14 @@ class MainPageLocators:
     LINK_MY_WISH = (By.XPATH, "(//*[@href='https://magento.softwaretestingboard.com/wishlist/'])[1]")
     LINK_SIGN_OUT = (By.XPATH, "(//*[@href='https://magento.softwaretestingboard.com/customer/account/logout/'])[1]")
     # ДОБАВИЛ ДАНЯ
-    LINK_CART = (By.XPATH, "//*[@class='minicart-wrapper']")
+    LINK_CART = (By.XPATH, "//*[@href='https://magento.softwaretestingboard.com/checkout/cart/']")
     CHECKOUT_BUTTON_LINK_CART = (By.XPATH, "//*[@id='top-cart-btn-checkout']")
     LINK_GEAR_CATALOG = (By.XPATH, "//*[@ID='ui-id-6']")
     LINK_WATCHES_CATALOG = (By.XPATH, "//*[@ID='ui-id-27']")
-    ADD_TO_CART_BOLO_SPORT_WATCH_BUTTON = (
+    LINK_BAGS_CATALOG = (By.XPATH, "//*[@ID='ui-id-25']")
+    HOLD_LINK_THIRD_ITEM_IN_ANY_CATALOG = (By.XPATH, "(//div[@class='product details product-item-details'])[3]")
+    ADD_TO_CART_THIRD_ITEM_IN_ANY_CATALOG_BUTTON = (
     By.XPATH, "(//div[@class='product details product-item-details']//button[@title='Add to Cart'])[3]")
-    HOLD_LINK_BOLO_SPORT_WATCH = (By.XPATH, "(//div[@class='product details product-item-details'])[3]")
     URL_CART = "https://magento.softwaretestingboard.com/checkout/cart/"
     # ДАНЯ КОНЕЦ
 
@@ -142,7 +143,7 @@ class OrdersAndReturnsPageLocators:
     ORDER_NUMBER_ON_CHECK_PAGE = (By.XPATH, "//span[@class='base']")
 
 
-class GuestShippingAddressPageLocators:
+class CheckoutPageLocators:
     EMAIL_FIELD = (By.XPATH, "//div[@class='field required']//*[@id='customer-email']")
     FIRST_NAME_FIELD = (By.XPATH, "//*[@name='firstname']")
     LAST_NAME_FIELD = (By.XPATH, "//*[@name='lastname']")
@@ -157,8 +158,11 @@ class GuestShippingAddressPageLocators:
     SHIPPING_BEST_WAY = (By.XPATH, "//*[@id='label_carrier_bestway_tablerate']")
     SHIPPING_FLAT_RATE = (By.XPATH, "//*[@id='label_carrier_flatrate_flatrate']")
 
-    ORDER_NUMBER = (By.XPATH, "//div[@class='checkout-success']/p/span")
+    ORDER_NUMBER_GUEST = (By.XPATH, "//div[@class='checkout-success']/p/span")
+    ORDER_NUMBER_AS_USER = (By.XPATH, "//div[@class='checkout-success']//strong")
     EMAIL_ORDER = (By.XPATH, "//*[@data-bind='text: getEmailAddress()']")
+
+    SUCCESS_PLACE_ORDER_MESSAGE = (By.XPATH,"//*[@data-ui-id='page-title-wrapper']")
 
     CHECKOUT_STEP_2_NEXT_BUTTON = (By.XPATH, "//*[@class='button action continue primary']")
     PLACE_ORDER_BUTTON = (By.XPATH, "//button[@title='Place Order']")
