@@ -42,7 +42,7 @@ class TestCheckOutAsUser(FakeData):
         page = CreateAccountPage(driver)
         email = self.email
         page.create(self.first_name, self.last_name, email, self.password)
-        MainPage(driver, open=False).add_item_from_gear_watches_catalog_to_cart(2)
+        MainPage(driver, open_url=False).add_item_from_gear_watches_catalog_to_cart(2)
         page = CheckoutPage(driver)
         page.open()
         page.fill_all_require_field_as_user_ru_shipping(self.street_address,

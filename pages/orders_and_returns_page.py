@@ -7,8 +7,8 @@ from data.locators import OrdersAndReturnsPageLocators
 class OrdersAndReturnsPage(BasePage):
     URL = "https://magento.softwaretestingboard.com/sales/guest/form/"
 
-    def __init__(self, driver, url=URL, open=True):
-        super().__init__(driver, url, open)
+    def __init__(self, driver, url=URL, open_url=True):
+        super().__init__(driver, url, open_url)
 
     def order_id_field(self) -> WebElement:
         return self.is_visible(OrdersAndReturnsPageLocators.ORDER_ID_FIELD)

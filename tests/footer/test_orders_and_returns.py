@@ -47,13 +47,13 @@ class TestCheckUserOrder(FakeData):
         last_name = self.last_name
         state = self.state
         CreateAccountPage(driver).create(self.first_name, last_name, email, self.password)
-        MainPage(driver, open=False).add_item_from_gear_watches_catalog_to_cart(4)
+        MainPage(driver, open_url=False).add_item_from_gear_watches_catalog_to_cart(4)
         page = CheckoutPage(driver)
         order_id = page.full_user_place_order_flat_rate(state, self.street_address, self.city,
                                                                  self.us_postcode_state(state),
                                                                  self.phone_number)
-        MainPage(driver, open=False).dropdown().click()
-        MainPage(driver, open=False).link_sign_out().click()
+        MainPage(driver, open_url=False).dropdown().click()
+        MainPage(driver, open_url=False).link_sign_out().click()
         orders_and_returns_page = OrdersAndReturnsPage(driver)
         orders_and_returns_page.find_order_by_email(order_id, last_name, email)
         assert orders_and_returns_page.text_order_number_on_check_page().text == f"Order # {order_id}"
@@ -64,13 +64,13 @@ class TestCheckUserOrder(FakeData):
         state = self.state
         postcode = self.us_postcode_state(state)
         CreateAccountPage(driver).create(self.first_name, last_name, self.email, self.password)
-        MainPage(driver, open=False).add_item_from_gear_bags_catalog_to_cart(6)
+        MainPage(driver, open_url=False).add_item_from_gear_bags_catalog_to_cart(6)
         page = CheckoutPage(driver)
         order_id = page.full_user_place_order_flat_rate(state, self.street_address, self.city,
                                                         postcode,
                                                         self.phone_number)
-        MainPage(driver, open=False).dropdown().click()
-        MainPage(driver, open=False).link_sign_out().click()
+        MainPage(driver, open_url=False).dropdown().click()
+        MainPage(driver, open_url=False).link_sign_out().click()
         orders_and_returns_page = OrdersAndReturnsPage(driver)
         orders_and_returns_page.fill_all_field_with_postcode(order_id, last_name, postcode)
         orders_and_returns_page.continue_button().click()

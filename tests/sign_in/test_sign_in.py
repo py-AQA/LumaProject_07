@@ -21,8 +21,8 @@ class TestSignIn(FakeData):
         email = self.email
         password = self.password
         CreateAccountPage(driver).create(self.first_name, self.last_name, email, password)
-        MainPage(driver, open=False).dropdown().click()
-        MainPage(driver, open=False).link_sign_out().click()
+        MainPage(driver, open_url=False).dropdown().click()
+        MainPage(driver, open_url=False).link_sign_out().click()
         page = LoginPage(driver)
         page.login_with_email_password(email, password)
         assert page.header().text == 'My Account', "Не удалось войти в существующий аккаунт "
@@ -32,8 +32,8 @@ class TestSignIn(FakeData):
         email = self.email
         password = self.password
         CreateAccountPage(driver).create(self.first_name, self.last_name, email, password)
-        MainPage(driver, open=False).dropdown().click()
-        MainPage(driver, open=False).link_sign_out().click()
+        MainPage(driver, open_url=False).dropdown().click()
+        MainPage(driver, open_url=False).link_sign_out().click()
         page = LoginPage(driver)
         page.login_with_email_password(email, self.password)
         assert page.current_url == LoginPageLocators.URL, "удалось залогиниться с неправильным паролем"

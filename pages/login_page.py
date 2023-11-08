@@ -4,8 +4,8 @@ from data.locators import LoginPageLocators, BasePageLocators
 
 
 class LoginPage(BasePage):
-    def __init__(self, driver, url=LoginPageLocators.URL, open=True):
-        super().__init__(driver, url, open)
+    def __init__(self, driver, url=LoginPageLocators.URL, open_url=True):
+        super().__init__(driver, url, open_url)
 
     def email(self) -> WebElement:
         return self.is_visible(LoginPageLocators.EMAIL)

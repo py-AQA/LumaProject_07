@@ -4,8 +4,8 @@ from data.locators import RegistrationPageLocators
 
 
 class RegistrationPage(BasePage):
-    def __init__(self, driver, url=RegistrationPageLocators.URL, open=True):
-        super().__init__(driver, url, open)
+    def __init__(self, driver, url=RegistrationPageLocators.URL, open_url=True):
+        super().__init__(driver, url, open_url)
 
     def first_name(self) -> WebElement:
         return self.is_visible(RegistrationPageLocators.FIRST_NAME)

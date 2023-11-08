@@ -9,8 +9,8 @@ class CheckoutPage(BasePage):
 
     URL_ORDER_PLACED_SUCCESS = "https://magento.softwaretestingboard.com/checkout/onepage/success/"
 
-    def __init__(self, driver, url=URL, open=True):
-        super().__init__(driver, url, open)
+    def __init__(self, driver, url=URL, open_url=True):
+        super().__init__(driver, url, open_url)
 
     def email_field(self):
         return self.is_visible(CheckoutPageLocators.EMAIL_FIELD)
