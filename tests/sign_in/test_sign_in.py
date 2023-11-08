@@ -8,7 +8,6 @@ def test_header(driver):
     page.open()
     assert page.header().text == 'Customer Login'
 
-@pytest.mark.skip
 def test_sign_in(driver):
     page = LoginPage(driver, url='https://magento.softwaretestingboard.com/customer/account/login')
     page.sign_in()
