@@ -26,4 +26,4 @@ jobs:
           pip install -r requirements.txt
       - name: Test with pytest
         run: |
-          pytest .
+          pytest -n3 --browser=chrome --place=local --state=headless --maxfail=2 .
