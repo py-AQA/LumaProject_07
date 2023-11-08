@@ -5,8 +5,8 @@ from data.locators import MainPageLocators, MyAccountPageLocators
 
 
 class MainPage(BasePage):
-    def __init__(self, driver, url=MainPageLocators.URL):
-        super().__init__(driver, url)
+    def __init__(self, driver, url=MainPageLocators.URL , open = True):
+        super().__init__(driver, url, open)
 
     def dropdown(self) -> WebElement:
         return self.is_clickable(MainPageLocators.DROPDOWN)
