@@ -19,12 +19,37 @@ class MainPageLocators:
     LINK_CART = (By.XPATH, "//*[@href='https://magento.softwaretestingboard.com/checkout/cart/']")
     CHECKOUT_BUTTON_LINK_CART = (By.XPATH, "//*[@id='top-cart-btn-checkout']")
     LINK_GEAR_CATALOG = (By.XPATH, "//*[@ID='ui-id-6']")
+    LINK_MEN_CATALOG = (By.XPATH, "//*[@ID='ui-id-5']")
+    LINK_MEN_TOPS_CATALOG = (By.XPATH, "//*[@ID='ui-id-17']")
+    LINK_MEN_JACKETS_CATALOG = (By.XPATH, "//*[@ID='ui-id-19']")
+
+    HOLD_LINK_MONTANA_JACKET = (
+    By.XPATH, "//div[@class='product details product-item-details']//*[@href='https://magento.softwaretestingboard.com/montana-wind-jacket.html']")
+    MONTANA_JACKET_SIZE_M_BUTTON = (
+    By.XPATH,"//a[@href='https://magento.softwaretestingboard.com/montana-wind-jacket.html']/../..//*[@option-label='M']")
+    MONTANA_JACKET_GREEN_COLOR_BUTTON = (
+    By.XPATH,"//a[@href='https://magento.softwaretestingboard.com/montana-wind-jacket.html']/../..//*[@option-label='Green']")
+    ADD_TO_CART_MONTANA_JACKET_BUTTON = (By.XPATH, "//input[@value='414']/following-sibling::button")
+
+
     LINK_WATCHES_CATALOG = (By.XPATH, "//*[@ID='ui-id-27']")
     LINK_BAGS_CATALOG = (By.XPATH, "//*[@ID='ui-id-25']")
+    LINK_FITNESS_CATALOG = (By.XPATH, "//*[@ID='ui-id-26']")
     HOLD_LINK_THIRD_ITEM_IN_ANY_CATALOG = (By.XPATH, "(//div[@class='product details product-item-details'])[3]")
+    HOLD_LINK_DRIVEN_BACKPACK = (By.XPATH, "//div/a[@href='https://magento.softwaretestingboard.com/driven-backpack.html']")
+
+    HOLD_LINK_CLAMBER_WATCH = (
+    By.XPATH, "//div/a[@href='https://magento.softwaretestingboard.com/clamber-watch.html']")
+    ADD_TO_CART_CLAMBER_WATCH_BUTTON = (By.XPATH, "//input[@value='43']/following-sibling::button")
+    ADD_TO_CART_DRIVEN_BACKPACK_BUTTON = (By.XPATH, "//input[@value='12']/following-sibling::button")
     ADD_TO_CART_THIRD_ITEM_IN_ANY_CATALOG_BUTTON = (
     By.XPATH, "(//div[@class='product details product-item-details']//button[@title='Add to Cart'])[3]")
     URL_CART = "https://magento.softwaretestingboard.com/checkout/cart/"
+
+    CUSTOMIZE_AND_ADD_TO_CART_BUTTON = (By.XPATH , "//*[@id='bundle-slide']")
+    BALL_65_CM = (By.XPATH ,"//span[text()='Sprite Stasis Ball 65 cm']")
+    YOGA_STRAP_10_FOOT = (By.XPATH, "//span[text()='Sprite Yoga Strap 10 foot']")
+    ADD_TO_CART_FROM_ITEM_BUTTON = (By.XPATH, "//*[@id='product-addtocart-button']")
     # ДАНЯ КОНЕЦ
 
 
