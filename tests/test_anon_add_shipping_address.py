@@ -16,8 +16,6 @@ from pages.add_to_cart_mok import ItemDetailsPage
 
 
 class TestNow(FakeData):
-
-    @pytest.mark.xfail
     def test_anon_add_shipping_address_with_select_state(self, driver):
         page = ItemDetailsPage(driver)
         page.add_to_cart().click()
@@ -46,8 +44,7 @@ class TestNow(FakeData):
         page.button_next().click()
         page.is_loading()
 
-        # assert page.msg == AnonShippigAddressAddPage.SUCCESS
-        # assert page.url == AnonShippigAddressAddPage.URL_DONE
+        assert page.url == AnonShippingAddressAddPage.URL_DONE
 
 
     @pytest.mark.skip
