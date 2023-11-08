@@ -12,34 +12,135 @@ todo: in the right upper corner to see link "Sign in". [visible, clickable] on [
 todo: user have access to *any[most_important_pages] page of the site Home Page
 todo: make order without be logged [most_important_user_flow]
 
-    navigate to item\items:
-        several methods
-        ...
+
+    navigate to mini_item\item:
+
+        directly opening url
+        hover over up menu
+        side menu for 768 and lower
+        from compare compare_item
+        from cart > more chioices mini_item
+        x from whish_list (only for auth users)
+
     add items to the cart:
-        add from big item
-        add with low qty
-	    add with right qty
-	    color/without
-	    size/without
-	    ...
-        add from small item
-    cart manipulation:
-        change item in the cart; [can we delete\edit cart item]
-        remove from cart
-        change item qty in minicart
-        button "update" visible after change
-        button "update" click saves changes
-            display message
-		    changed data visible and realy changed
-        button trash removes
-		    item not preset after removal
-		...
-        button pencil redirect to item details page
-    on big_item page
-	    choose\change item color
-	    choose\change item size
-        change item
-    able to make order and pay it; [go to checkout]
+
+	    add from kit_mini_item ex: 1st mini_item in https://magento.softwaretestingboard.com/gear/fitness-equipment.html
+	        add to cart
+	        user -> [kit_item - customize]
+	        ["Please specify product option(s)." - info type]
+        add from [kit_item - customize] ex: https://magento.softwaretestingboard.com/sprite-yoga-companion-kit.html
+            customize
+            add to cart
+            ["You added Sprite Yoga Companion Kit to your shopping cart."]
+            !!! BUG user can set item qty to 0 but will get one item anyway
+
+
+	    add set_mini_item
+	        add to cart
+	        ["Please specify the quantity of product(s)." - info type]
+            user -> [set_item - choose qty]
+        add from [set_item - choose qty] ex: https://magento.softwaretestingboard.com/set-of-sprite-yoga-straps.html
+            choose qty
+            add to cart
+            ["You added Set of Sprite Yoga Straps to your shopping cart."]
+            !!! adds several distinct items at once to cart
+
+
+        add from [usual_item - size\color\qty=1]
+            choose size []
+            choose color []
+            default qty 1 []
+            add to cart
+            ["You added Cassius Sparring Tank to your shopping cart."]
+        add from [usual mini_item - size\color]
+            choose size []
+            choose color []
+            !default qty = 1
+            add to cart
+	        ["You added Montana Wind Jacket to your shopping cart."]
+	        ! user still on same page
+
+            add without choosing size ["You need to choose options for your item." - info type]
+            add without choosing color ["You need to choose options for your item." - info type]
+            add without choosing size and color ["You need to choose options for your item." - info type]
+            add to cart
+	        user -> [usual item - size\color\qty=1]
+	        ! if chose size or color only the chosen state is lost
+
+
+        add usual_mini_item not in_stock ex: 1st item in https://magento.softwaretestingboard.com/gear/bags.html
+            add to cart
+            ["The requested qty is not available"]
+            user -> [usual_item not in_stock]
+        add usual_item not in_stock ex: https://magento.softwaretestingboard.com/push-it-messenger-bag.html
+            add to cart
+            ["The requested qty is not available"]
+
+
+
+
+    cart manipulation [CRUD]:
+        minicart: on any page dropdown
+            -per item in minicart
+            name and img
+                user -> item page
+            see details dropdown
+                    size
+                    color
+            item price in cart same as before
+            update item and check if updated
+                button update
+                    visible\invisible
+                qty edit field
+                    alert The requested qty exceeds the maximum qty allowed in shopping cart
+                    ok
+                updates item qty and subtotals
+            edit\pencil
+                user -> [update item]
+            remove\trash item and check if removed
+                alert Are you sure you would like to remove this item from the shopping cart?
+                cancel
+                yes
+            -common
+            go to checkout
+            items qty
+            subtotal
+            go to [view and edit cart]
+
+
+        cart: on https://magento.softwaretestingboard.com/checkout/cart/
+            -per item in cart
+            name and img
+                user -> item page
+            item price in cart same as before
+            qty edit field
+                 ! editable but not responsive - BUG
+            edit\pencil
+                !(set edit is missing - BUG?)
+                user -> [update item]
+                (update takes user back and
+                ["Overnight Duffle was updated in your shopping cart."])
+            remove\trash item and check if removed
+                no messages
+                updating data seems ok
+            -common
+            update shopping cart button
+                err: Please enter a number greater than 0 in this field.
+                alert The requested qty exceeds the maximum qty allowed in shopping cart
+                    ok
+                recalculate
+            apply discount code dropdown:
+                edit
+                button
+                    ["The coupon code "sdfsdf" is not valid."]
+            go to checkout
+            items qty
+            order summary:
+            checkout
+            checkout multiple
+
+    checkout [go to checkout]:
+
         fill the shipping (checkout step one)
         choose shipping method(step one.one)
         payment address are the same ...
