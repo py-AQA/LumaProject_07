@@ -12,7 +12,7 @@ from pages.login_page import LoginPage
 from pages.main_page import MainPage
 
 # GITHUB_ACTIONS local env var 4 testing purposes
-environ["GITHUB_ACTIONS"] = "true"
+# environ["GITHUB_ACTIONS"] = "true"
 GRID_URL = "http://localhost:4444/wd/hub"
 
 
