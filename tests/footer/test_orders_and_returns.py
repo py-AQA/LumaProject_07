@@ -13,16 +13,14 @@ class TestCheckGuestOrder(FakeData):
         email = self.email
         last_name = self.last_name
         state = self.state
-        page = MainPage(driver)
-        page.open()
-        page.add_item_from_gear_watches_catalog_to_cart(6)
-        checkout_page = CheckoutPage(driver)
-        order_id = checkout_page.full_guest_place_order_us_address(state,email, self.first_name,
-                                                           last_name,self.street_address, self.city,
-                                                           self.us_postcode_state(state),
-                                                           self.phone_number)
+        MainPage(driver).add_item_from_gear_watches_catalog_to_cart(6)
+        page = CheckoutPage(driver)
+        order_id = page.full_guest_place_order_us_address(state, email, self.first_name,
+                                                          last_name, self.street_address, self.city,
+                                                          self.us_postcode_state(state),
+                                                          self.phone_number)
         orders_and_returns_page = OrdersAndReturnsPage(driver)
-        orders_and_returns_page.find_order_by_email(order_id,last_name,email)
+        orders_and_returns_page.find_order_by_email(order_id, last_name, email)
         assert orders_and_returns_page.text_order_number_on_check_page().text == f"Order # {order_id}"
 
     # ФУНКЦИЯ ВЕШАЕТ РАНДОМНЫЙ ОРДЕР И ПРОВЕРЯЕТ ЕГО В БАЗЕ ПО ИНДЕКСУ ПОЧТОВОМУ
@@ -30,37 +28,34 @@ class TestCheckGuestOrder(FakeData):
         last_name = self.last_name
         state = self.state
         postcode = self.us_postcode_state(state)
-        page = MainPage(driver)
-        page.open()
-        page.add_item_from_gear_bags_catalog_to_cart(6)
-        checkout_page = CheckoutPage(driver)
-        order_id = checkout_page.full_guest_place_order_us_address(state, self.email, self.first_name,
-                                                           last_name, self.street_address, self.city,
-                                                           postcode,
-                                                           self.phone_number)
+        MainPage(driver).add_item_from_gear_bags_catalog_to_cart(6)
+        page = CheckoutPage(driver)
+        order_id = page.full_guest_place_order_us_address(state, self.email, self.first_name,
+                                                          last_name, self.street_address, self.city,
+                                                          postcode,
+                                                          self.phone_number)
         orders_and_returns_page = OrdersAndReturnsPage(driver)
-        orders_and_returns_page.fill_all_field_with_postcode(order_id,last_name,postcode)
+        orders_and_returns_page.fill_all_field_with_postcode(order_id, last_name, postcode)
         orders_and_returns_page.continue_button().click()
         assert orders_and_returns_page.text_order_number_on_check_page().text == f"Order # {order_id}"
 
+
 class TestCheckUserOrder(FakeData):
-    # ФУНКЦИЯ ВЕШАЕТ РАНДОМНЫЙ ОРДЕР И ПРОВЕРЯЕТ ЕГО В БАЗЕ ПО ЕМЕЙЛУ
+    # ЮЗЕР ВЕШАЕТ ОРДЕР И ПРОВЕРЯЕТ ЕГО В БАЗЕ ПО ЕМЕЙЛУ
     def test_check_order_by_email(self, driver):
         email = self.email
         last_name = self.last_name
         state = self.state
-        page = CreateAccountPage(driver)
-        page.create(self.first_name,last_name,email,self.password)
-        MainPage(driver).add_item_from_gear_watches_catalog_to_cart(4)
-        checkout_page = CheckoutPage(driver)
-        order_id = checkout_page.full_user_place_order_flat_rate(state,self.street_address, self.city,
-                                                           self.us_postcode_state(state),
-                                                           self.phone_number)
-        print(order_id)
-        MainPage(driver).dropdown().click()
-        MainPage(driver).link_sign_out().click()
+        CreateAccountPage(driver).create(self.first_name, last_name, email, self.password)
+        MainPage(driver, open=False).add_item_from_gear_watches_catalog_to_cart(4)
+        page = CheckoutPage(driver)
+        order_id = page.full_user_place_order_flat_rate(state, self.street_address, self.city,
+                                                                 self.us_postcode_state(state),
+                                                                 self.phone_number)
+        MainPage(driver, open=False).dropdown().click()
+        MainPage(driver, open=False).link_sign_out().click()
         orders_and_returns_page = OrdersAndReturnsPage(driver)
-        orders_and_returns_page.find_order_by_email(order_id,last_name,email)
+        orders_and_returns_page.find_order_by_email(order_id, last_name, email)
         assert orders_and_returns_page.text_order_number_on_check_page().text == f"Order # {order_id}"
 
     # ФУНКЦИЯ ВЕШАЕТ РАНДОМНЫЙ ОРДЕР И ПРОВЕРЯЕТ ЕГО В БАЗЕ ПО ИНДЕКСУ ПОЧТОВОМУ
@@ -68,14 +63,14 @@ class TestCheckUserOrder(FakeData):
         last_name = self.last_name
         state = self.state
         postcode = self.us_postcode_state(state)
-        page = MainPage(driver)
-        page.open()
-        page.add_item_from_gear_bags_catalog_to_cart(6)
-        checkout_page = CheckoutPage(driver)
-        order_id = checkout_page.full_guest_place_order_us_address(state, self.email, self.first_name,
-                                                           last_name, self.street_address, self.city,
-                                                           postcode,
-                                                           self.phone_number)
+        CreateAccountPage(driver).create(self.first_name, last_name, self.email, self.password)
+        MainPage(driver, open=False).add_item_from_gear_bags_catalog_to_cart(6)
+        page = CheckoutPage(driver)
+        order_id = page.full_user_place_order_flat_rate(state, self.street_address, self.city,
+                                                        postcode,
+                                                        self.phone_number)
+        MainPage(driver, open=False).dropdown().click()
+        MainPage(driver, open=False).link_sign_out().click()
         orders_and_returns_page = OrdersAndReturnsPage(driver)
         orders_and_returns_page.fill_all_field_with_postcode(order_id, last_name, postcode)
         orders_and_returns_page.continue_button().click()
@@ -118,13 +113,11 @@ class TestSwitchFindOrderBy:
 
     def test_switch_to_zip(self, driver):
         page = OrdersAndReturnsPage(driver)
-        page.open()
         page.select_find_order_by_postcode_dropdown()
         assert page.name_billing_postcode_field().text == OrdersAndReturnsPageLocators.TEXT_NAME_POSTCODE_FIELD, 'не произошло переключение поиска заказа с Email на ZIP'
 
     def test_switch_to_email(self, driver):
         page = OrdersAndReturnsPage(driver)
-        page.open()
         page.select_find_order_by_postcode_dropdown()
         assert page.name_billing_postcode_field().text == OrdersAndReturnsPageLocators.TEXT_NAME_POSTCODE_FIELD, 'не произошло переключение поиска заказа с Email на ZIP'
         page.select_find_order_by_email_dropdown()

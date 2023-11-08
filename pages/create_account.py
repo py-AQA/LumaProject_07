@@ -8,9 +8,8 @@ from data.locators import CreateAccountFormLocators
 class CreateAccountForm(BasePage):
     URL = "https://magento.softwaretestingboard.com/customer/account/create/"
 
-    def __init__(self, driver, url=URL):
-        super().__init__(driver)
-        self.current_url = url
+    def __init__(self, driver, url=URL, open=True):
+        super().__init__(driver, url, open)
 
     @property
     def first_name_label(self):

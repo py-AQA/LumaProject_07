@@ -18,12 +18,31 @@ class MainPageLocators:
     # ДОБАВИЛ ДАНЯ
     LINK_CART = (By.XPATH, "//*[@href='https://magento.softwaretestingboard.com/checkout/cart/']")
     CHECKOUT_BUTTON_LINK_CART = (By.XPATH, "//*[@id='top-cart-btn-checkout']")
-    LINK_GEAR_CATALOG = (By.XPATH, "//*[@ID='ui-id-6']")
-    LINK_MEN_CATALOG = (By.XPATH, "//*[@ID='ui-id-5']")
-    LINK_MEN_TOPS_CATALOG = (By.XPATH, "//*[@ID='ui-id-17']")
-    LINK_MEN_JACKETS_CATALOG = (By.XPATH, "//*[@ID='ui-id-19']")
+    #ГЛОБАЛЬНЫЕ КАТАЛОГИ
+    LINK_WOMEN_CATALOG = (By.XPATH, "//*[@id='ui-id-4']")
+    LINK_MEN_CATALOG = (By.XPATH, "//*[@id='ui-id-5']")
+    LINK_GEAR_CATALOG = (By.XPATH, "//*[@id='ui-id-6']")
+    #ВЛОЖЕННЫЕ КАТАЛОГИ
+    LINK_MEN_TOPS_CATALOG = (By.XPATH, "//*[@id='ui-id-17']")
+    LINK_MEN_JACKETS_CATALOG = (By.XPATH, "//*[@id='ui-id-19']")
+    LINK_WATCHES_CATALOG = (By.XPATH, "//*[@id='ui-id-27']")
+    LINK_BAGS_CATALOG = (By.XPATH, "//*[@id='ui-id-25']")
+    LINK_FITNESS_CATALOG = (By.XPATH, "//*[@id='ui-id-26']")
+    LINK_WOMEN_BOTTOMS_CATALOG = (By.XPATH, "//*[@id='ui-id-10']")
+    LINK_WOMEN_BOTTOMS_PANTS_CATALOG = (By.XPATH, "//*[@id='ui-id-15']")
 
-    HOLD_LINK_MONTANA_JACKET = (
+
+    LINK_PORTIA_CAPRI_PANTS = (
+    By.XPATH, "//div[@class='product details product-item-details']//*[@href='https://magento.softwaretestingboard.com/portia-capri.html']")
+    PORTIA_CAPRI_PANTS_SIZE_28_BUTTON = (
+        By.XPATH,
+        "//a[@href='https://magento.softwaretestingboard.com/portia-capri.html']/../..//*[@option-label='28']")
+    PORTIA_CAPRI_PANTS_BLUE_COLOR_BUTTON = (
+        By.XPATH,
+        "//a[@href='https://magento.softwaretestingboard.com/portia-capri.html']/../..//*[@option-label='Blue']")
+    ADD_TO_CART_PORTIA_CAPRI_PANTS_BUTTON = (By.XPATH, "//input[@value='1903']/following-sibling::button")
+
+    LINK_MONTANA_JACKET = (
     By.XPATH, "//div[@class='product details product-item-details']//*[@href='https://magento.softwaretestingboard.com/montana-wind-jacket.html']")
     MONTANA_JACKET_SIZE_M_BUTTON = (
     By.XPATH,"//a[@href='https://magento.softwaretestingboard.com/montana-wind-jacket.html']/../..//*[@option-label='M']")
@@ -32,13 +51,12 @@ class MainPageLocators:
     ADD_TO_CART_MONTANA_JACKET_BUTTON = (By.XPATH, "//input[@value='414']/following-sibling::button")
 
 
-    LINK_WATCHES_CATALOG = (By.XPATH, "//*[@ID='ui-id-27']")
-    LINK_BAGS_CATALOG = (By.XPATH, "//*[@ID='ui-id-25']")
-    LINK_FITNESS_CATALOG = (By.XPATH, "//*[@ID='ui-id-26']")
-    HOLD_LINK_THIRD_ITEM_IN_ANY_CATALOG = (By.XPATH, "(//div[@class='product details product-item-details'])[3]")
-    HOLD_LINK_DRIVEN_BACKPACK = (By.XPATH, "//div/a[@href='https://magento.softwaretestingboard.com/driven-backpack.html']")
 
-    HOLD_LINK_CLAMBER_WATCH = (
+
+    LINK_THIRD_ITEM_IN_ANY_CATALOG = (By.XPATH, "(//div[@class='product details product-item-details'])[3]")
+    LINK_DRIVEN_BACKPACK = (By.XPATH, "//div/a[@href='https://magento.softwaretestingboard.com/driven-backpack.html']")
+
+    LINK_CLAMBER_WATCH = (
     By.XPATH, "//div/a[@href='https://magento.softwaretestingboard.com/clamber-watch.html']")
     ADD_TO_CART_CLAMBER_WATCH_BUTTON = (By.XPATH, "//input[@value='43']/following-sibling::button")
     ADD_TO_CART_DRIVEN_BACKPACK_BUTTON = (By.XPATH, "//input[@value='12']/following-sibling::button")
@@ -131,6 +149,8 @@ class RegistrationPageLocators:
 
 class ItemPageLocators:
     ADD_TO_WISH_LIST = (By.CSS_SELECTOR, 'div.product-social-links .towishlist')
+    QUANTITY_OF_ITEM = (By.XPATH, "//*[@id='qty']")
+    QUANTITY_ERROR_MSG = (By.XPATH, "//*[@id='qty-error']")
 
 
 class WishListPageLocators:
@@ -197,5 +217,7 @@ class CheckoutPageLocators:
 
 class CartLocators:
     CART_PROCEED_TO_CHECKOUT_BUTTON = (By.XPATH, "//div[@class='cart-summary']//*[@title='Proceed to Checkout']")
+    CART_COUNTER_ICON = (By.XPATH,"//*[@class='counter-number']")
+
 
 # ДОБАВИЛ ДАНЯ КОНЕЦ

@@ -7,8 +7,8 @@ from data.locators import OrdersAndReturnsPageLocators
 class OrdersAndReturnsPage(BasePage):
     URL = "https://magento.softwaretestingboard.com/sales/guest/form/"
 
-    def __init__(self, driver, url=URL):
-        super().__init__(driver, url)
+    def __init__(self, driver, url=URL, open=True):
+        super().__init__(driver, url, open)
 
     def order_id_field(self) -> WebElement:
         return self.is_visible(OrdersAndReturnsPageLocators.ORDER_ID_FIELD)
@@ -55,14 +55,12 @@ class OrdersAndReturnsPage(BasePage):
         return self.is_visible(OrdersAndReturnsPageLocators.NAME_EMAIL_FIELD)
 
     def fill_all_field_with_email(self, order_id, billing_lastname, email):
-        self.open()
         self.order_id_field().send_keys(order_id)
         self.billing_lastname_field().send_keys(billing_lastname)
         self.email_field().send_keys(email)
         return self
 
     def fill_all_field_with_postcode(self, order_id, billing_lastname, postcode):
-        self.open()
         self.order_id_field().send_keys(order_id)
         self.billing_lastname_field().send_keys(billing_lastname)
         self.select_find_order_by_postcode_dropdown()
