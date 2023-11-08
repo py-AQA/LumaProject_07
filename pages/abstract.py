@@ -46,8 +46,8 @@ class Page(BasePage):
 
     MSG = (By.CSS_SELECTOR, '[data-ui-id="message-success"]')
 
-    def __init__(self, driver):
-        super().__init__(driver)
+    def __init__(self, driver, url):
+        super().__init__(driver, url)
 
         self.demo = Demo(driver)
         # self.footer = Footer(driver)
