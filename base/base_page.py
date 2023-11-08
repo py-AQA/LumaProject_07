@@ -13,13 +13,14 @@ class BasePage:
     TIMEOUT = 10
     LOADER = (By.CSS_SELECTOR, "div.loader")
 
-    def __init__(self, driver, url=URL):
+    def __init__(self, driver, url=URL, open=True):
         self.driver = driver
-        self.url = url
+        if open:
+            self.current_url = url
 
     def open(self):
         self.driver.delete_cookie("mage-messages")
-        self.driver.get(self.url)
+        self.driver.get(self.current_url)
 
     def header(self) -> WebElement:
         return self.is_visible(BasePageLocators.HEADER)
