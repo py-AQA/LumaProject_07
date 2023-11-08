@@ -9,7 +9,6 @@ from pages.sign_in import SignInPage
 from pages.create_account import CreateAccountPage
 
 
-@pytest.mark.xskip
 class TestNow(FakeData):
 
     def test_sign_in_link(self, driver):
