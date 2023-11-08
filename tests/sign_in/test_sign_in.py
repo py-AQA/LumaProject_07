@@ -7,17 +7,11 @@ from pages.login_page import LoginPage
 from pages.main_page import MainPage
 
 
-def test_header(driver):
-    page = LoginPage(driver, url='https://magento.softwaretestingboard.com/customer/account/login')
-    page.open()
-    assert page.header().text == 'Customer Login'
-
-
-@pytest.mark.skip
-def test_sign_in(driver):
-    page = LoginPage(driver, url='https://magento.softwaretestingboard.com/customer/account/login')
-    page.sign_in()
-    assert page.header().text == 'My Account'
+# @pytest.mark.skip
+# def test_sign_in(driver):
+#     page = LoginPage(driver, url='https://magento.softwaretestingboard.com/customer/account/login')
+#     page.sign_in()
+#     assert page.header().text == 'My Account'
 
 
 # ДОБАВИЛ ДАНЯ
@@ -50,4 +44,9 @@ class TestSignIn(FakeData):
         page.login_with_email_password(self.email, self.password)
         assert page.current_url == LoginPageLocators.URL, "удалось залогиниться с неправильным паролем"
         assert page.error_signin_msg().text == LoginPageLocators.TEXT_ERROR_MSG_LOGIN, "неправильное сообщение об ошибке при попытке логина с неправильным паролем"
-# ДОБАВИЛ ДАНЯ КОНЕЦ
+
+    # ДОБАВИЛ ДАНЯ КОНЕЦ
+
+    def test_header(self, driver):
+        page = LoginPage(driver)
+        assert page.header().text == 'Customer Login'
