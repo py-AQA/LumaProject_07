@@ -9,8 +9,8 @@ class CheckoutPage(BasePage):
 
     URL_ORDER_PLACED_SUCCESS = "https://magento.softwaretestingboard.com/checkout/onepage/success/"
 
-    def __init__(self, driver, url=URL):
-        super().__init__(driver, url)
+    def __init__(self, driver, url=URL, open=True):
+        super().__init__(driver, url, open)
 
     def email_field(self):
         return self.is_visible(CheckoutPageLocators.EMAIL_FIELD)
@@ -122,8 +122,8 @@ class CheckoutPage(BasePage):
         self.phone_number_field().send_keys(phone_number)
 
     # ФУНКЦИЯ ВЕШАЕТ ЗАКАЗ КАК ГОСТЬ И ВОЗВРАЩАЕТ НОМЕР ЗАКАЗА
-    def full_guest_place_order_ru_address(self, email, firstname, lastname, street_1, city, postcode, phone_number) -> str:
-        self.open()
+    def full_guest_place_order_ru_address(self, email, firstname, lastname, street_1, city, postcode,
+                                          phone_number) -> str:
         self.fill_all_require_field_as_gues_ru_shipping(email, firstname, lastname, street_1, city, postcode,
                                                         phone_number)
         self.select_flat_rate_shipping()
@@ -133,8 +133,7 @@ class CheckoutPage(BasePage):
         return order_id
 
     def full_guest_place_order_us_address(self, state, email, firstname, lastname, street_1, city, postcode,
-                                  phone_number) -> str:
-        self.open()
+                                          phone_number) -> str:
         self.fill_all_require_field_as_gues_us_shipping(state, email, firstname, lastname, street_1, city, postcode,
                                                         phone_number)
         self.select_flat_rate_shipping()
@@ -144,8 +143,7 @@ class CheckoutPage(BasePage):
         return order_id
 
     def full_user_place_order_flat_rate(self, state, street_1, city, postcode,
-                                  phone_number) -> str:
-        self.open()
+                                        phone_number) -> str:
         self.fill_all_require_field_as_user_us_shipping(state, street_1, city, postcode,
                                                         phone_number)
         self.select_flat_rate_shipping()
