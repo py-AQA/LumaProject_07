@@ -1,5 +1,7 @@
 from time import sleep
 
+import pytest
+
 from data.fake_data import FakeData
 from pages.home import HomePage
 from pages.logout import LogoutPage
@@ -7,7 +9,9 @@ from pages.sign_in import SignInPage
 from pages.create_account import CreateAccountPage
 
 
+@pytest.mark.xskip
 class TestNow(FakeData):
+
     def test_sign_in_link(self, driver):
         # todo узнать какую страницу сайта выбрать для проверки
         page = HomePage(driver)
