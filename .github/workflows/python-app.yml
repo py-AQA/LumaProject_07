@@ -21,10 +21,9 @@ jobs:
           cache: 'pip' # caching pip dependencies
       - name: Install dependencies
         run: |
-          lscpu
           python -m pip install --upgrade pip
           pip install pytest
           pip install -r requirements.txt
       - name: Test with pytest
         run: |
-          pytest --maxfail=2 .
+          pytest -n3 --browser=chrome --place=local --state=headless --maxfail=2 .

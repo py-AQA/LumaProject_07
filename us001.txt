@@ -156,3 +156,18 @@ todo: make order without be logged [most_important_user_flow]
 	    chl email
 	    chk empty shopping cart
 ---
+=================================================================================
+===lscpu
+Architecture:                       x86_64
+CPU op-mode(s):                     32-bit, 64-bit
+Address sizes:                      46 bits physical, 48 bits virtual
+Byte Order:                         Little Endian
+CPU(s):                             2
+On-line CPU(s) list:                0,1
+Vendor ID:                          GenuineIntel
+Model name:                         Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz
+CPU family:                         6
+Model:                              85
+Thread(s) per core:                 1
+Core(s) per socket:                 2
+Socket(s):                          1
