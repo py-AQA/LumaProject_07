@@ -10,8 +10,8 @@ class ItemDetailsPage(Page):
     SUCCESS = "You added Luma Analog Watch to your shopping cart."
 
     def __init__(self, driver, url=URL):
-        self.init__ = super().__init__(driver)
-        self.current_url = url
+        super().__init__(driver, url)
+        # self.current_url = url
 
     def add_to_cart(self):
         el = self.is_clickable(self.ADD_TO_CART)

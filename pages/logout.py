@@ -8,6 +8,6 @@ class LogoutPage(Page):
     URL_DONE = "https://magento.softwaretestingboard.com/customer/account/logoutSuccess/"
 
     def __init__(self, driver, url=URL):
-        super().__init__(driver)
-        self.current_url = url
+        super().__init__(driver, url)
+        # self.current_url = url
 

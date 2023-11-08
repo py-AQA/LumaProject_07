@@ -6,7 +6,7 @@ from pages.my_account_wish_list import MyAccountWishListPage
 
 def test_check_item_present(driver, auth):
     page = MyAccountWishListPage(driver)
-    page.open()
+    # page.open()
     assert page.check_item_present(), 'item не найден'
 
 

@@ -16,8 +16,8 @@ class SignInPage(Page):
     FAIL = "The account sign-in was incorrect or your account is disabled temporarily. Please wait and try again later."
 
     def __init__(self, driver, url=URL):
-        super().__init__(driver)
-        self.current_url = url
+        super().__init__(driver, url)
+        # self.current_url = url
 
         # self.referer = parse.unquote(url.split('referer/')[1])
         # print(b64decode(self.referer))

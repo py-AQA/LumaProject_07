@@ -4,13 +4,13 @@ from pages.registration_page import RegistrationPage
 
 def test_header(driver):
     page = RegistrationPage(driver, 'https://magento.softwaretestingboard.com/customer/account/create/')
-    page.open()
+    # page.open()
     assert page.header().text == 'Create New Customer Account'
 
 
 def test_first_name(driver, random_first_name):
     page = RegistrationPage(driver, 'https://magento.softwaretestingboard.com/customer/account/create/')
-    page.open()
+    # page.open()
     page.first_name().send_keys(random_first_name)
     time.sleep(2)
     # driver()
@@ -18,28 +18,28 @@ def test_first_name(driver, random_first_name):
 
 def test_last_name(driver, random_last_name):
     page = RegistrationPage(driver, 'https://magento.softwaretestingboard.com/customer/account/create/')
-    page.open()
+    # page.open()
     page.last_name().send_keys(random_last_name)
     time.sleep(2)
 
 
 def test_email(driver, random_email):
     page = RegistrationPage(driver, 'https://magento.softwaretestingboard.com/customer/account/create/')
-    page.open()
+    # page.open()
     page.email().send_keys(random_email)
     time.sleep(2)
 
 
 def test_password(driver, random_password):
     page = RegistrationPage(driver, 'https://magento.softwaretestingboard.com/customer/account/create/')
-    page.open()
+    # page.open()
     page.password().send_keys(random_password)
     time.sleep(2)
 
 
 def test_registration(driver, random_first_name, random_last_name, random_email, random_password):
     page = RegistrationPage(driver, 'https://magento.softwaretestingboard.com/customer/account/create/')
-    page.open()
+    # page.open()
     page.first_name().send_keys(random_first_name)
     page.last_name().send_keys(random_last_name)
     page.email().send_keys(random_email)

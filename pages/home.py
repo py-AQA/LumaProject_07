@@ -70,7 +70,7 @@ class HomePage(Page):
     # burger = BurgerMenu()
     switch = 768
 
-    def __init__(self, driver, url=URL):
+    def __init__(self, driver, url=URL, open_url=True):
         super().__init__(driver, url)
         self.footer = Footer(driver)
 

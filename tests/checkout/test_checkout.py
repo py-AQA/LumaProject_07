@@ -20,10 +20,10 @@ class TestCheckOutAsGuest(FakeData):
 
     def test_buy_bags_us_shipping(self, driver):
         page = MainPage(driver)
-        page.open()
+        # page.open()
         page.add_item_from_gear_watches_catalog_to_cart(2)
         checkout_page = CheckoutPage(driver)
-        checkout_page.open()
+        # checkout_page.open()
         email = self.email
         state = self.state
         checkout_page.fill_all_require_field_as_gues_us_shipping(state, email, self.first_name, self.last_name,
@@ -44,7 +44,7 @@ class TestCheckOutAsUser(FakeData):
         page.create(self.first_name, self.last_name, email, self.password)
         MainPage(driver, open_url=False).add_item_from_gear_watches_catalog_to_cart(2)
         page = CheckoutPage(driver)
-        page.open()
+        # page.open()
         page.fill_all_require_field_as_user_ru_shipping(self.street_address,
                                                         self.city, self.postcode, self.phone_number)
         page.select_flat_rate_shipping()
