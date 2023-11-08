@@ -94,7 +94,7 @@ def driver(request, browser, place, options):
 
     # driver for GITHUB_ACTIONS driver setup
     if environ.get('GITLAB_CI') or environ.get('GITHUB_ACTIONS') == 'true':
-        raise AssertionError('WE are HERE')
+        # raise AssertionError('WE are HERE')
         options = webdriver.ChromeOptions()
         options.add_argument('--headless')  # Run Chrome in headless mode.
         options.add_argument('--no-sandbox')  # Bypass OS security model
