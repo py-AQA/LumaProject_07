@@ -35,9 +35,9 @@ class AddressAddPage(Page):
     SUCCESS = "You saved the address."
 
     def __init__(self, driver, url=URL):
-        super().__init__(driver)
+        super().__init__(driver, url)
         # переходим к указанной или URL странице
-        self.current_url = url
+        # self.current_url = url
 
     @property
     def first_name(self):

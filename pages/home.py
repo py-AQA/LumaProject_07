@@ -72,7 +72,7 @@ class HomePage(Page):
 
     def __init__(self, driver, url=URL, open_url=True):
         super().__init__(driver, url)
-        self.footer = Footer(driver)
+        # self.footer = Footer(driver)
 
 
 

@@ -39,10 +39,10 @@ class CreateAccountPage(Page):
             "click here to get your password and access your account.")
 
     def __init__(self, driver, url=URL):
-        super().__init__(driver)
+        super().__init__(driver, url)
         # переходим к указанной или URL странице
         # print('>>>>>>>>>>>>>', url)
-        self.current_url = url
+        # self.current_url = url
 
     @property
     def first_name(self):

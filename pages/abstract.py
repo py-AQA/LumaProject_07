@@ -43,15 +43,15 @@ class Copyright(BasePage):
 
 
 class Page(BasePage):
-    URL = "about:blank"
+    URL = "page->about:blank"
     MSG = (By.CSS_SELECTOR, '[data-ui-id="message-success"]')
 
     def __init__(self, driver, url=URL):
-        super().__init__(driver, url, open_url=False)
+        super().__init__(driver, url)
 
-        self.demo = Demo(driver)
+        # self.demo = Demo(driver)
         # self.footer = Footer(driver)
-        self.copyright = Copyright(driver)
+        # self.copyright = Copyright(driver)
 
     @property
     def msg(self):
