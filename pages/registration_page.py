@@ -4,8 +4,8 @@ from data.locators import RegistrationPageLocators
 
 
 class RegistrationPage(BasePage):
-    def __init__(self, driver, url=RegistrationPageLocators.URL):
-        super().__init__(driver, url)
+    def __init__(self, driver, url=RegistrationPageLocators.URL, open=True):
+        super().__init__(driver, url, open)
 
     def first_name(self) -> WebElement:
         return self.is_visible(RegistrationPageLocators.FIRST_NAME)
@@ -28,14 +28,13 @@ class RegistrationPage(BasePage):
     def success_message(self) -> str:
         return self.is_visible(RegistrationPageLocators.SUCCESS_MESSAGE).text
 
-    def create_account(self, page, random_first_name, random_last_name, random_email, random_password):
-        page.open()
+    def create_account(self, random_first_name, random_last_name, random_email, random_password):
         # todo sometimes fails with 'NoneType' object has no attribute 'send_keys' for
         #  page.first_name().send_keys(random_first_name)
-        page.first_name().send_keys(random_first_name)
-        page.last_name().send_keys(random_last_name)
-        page.email().send_keys(random_email)
-        page.password().send_keys(random_password)
-        page.confirm_password().send_keys(random_password)
-        page.button_create_account().click()
-        assert page.success_message() == 'Thank you for registering with Main Website Store.', 'Не удалось создать.'
+        self.first_name().send_keys(random_first_name)
+        self.last_name().send_keys(random_last_name)
+        self.email().send_keys(random_email)
+        self.password().send_keys(random_password)
+        self.confirm_password().send_keys(random_password)
+        self.button_create_account().click()
+        assert self.success_message() == 'Thank you for registering with Main Website Store.', 'Не удалось создать.'
