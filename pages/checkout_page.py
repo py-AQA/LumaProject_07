@@ -67,7 +67,7 @@ class CheckoutPage(BasePage):
         return self.is_visible(CheckoutPageLocators.EMAIL_ORDER)
 
     def select_flat_rate_shipping(self):
-        self.is_loading()
+        # self.is_loading()
         self.is_clickable(CheckoutPageLocators.SHIPPING_FLAT_RATE).click()
         # self.is_loading()
         self.step_2_next_button().click()

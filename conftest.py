@@ -1,3 +1,4 @@
+from os import environ
 from random import randint
 
 import pytest
@@ -88,6 +89,21 @@ def options(browser, state):
 @pytest.fixture(scope="function", autouse=True)
 def driver(request, browser, place, options):
     driver = None
+
+    # driver for GITHUB_ACTIONS driver setup
+    if environ.get('GITLAB_CI') or environ.get('GITHUB_ACTIONS') == 'true':
+        options = webdriver.ChromeOptions()
+        options.add_argument('--headless')  # Run Chrome in headless mode.
+        options.add_argument('--no-sandbox')  # Bypass OS security model
+        options.add_argument('--disable-dev-shm-usage')  # Overcome limited resource problems
+        driver = webdriver.Chrome(options=options)
+
+        yield driver
+
+        driver.quit()
+        return None
+
+    # debug driver for wss proxy AND tabs\one browser
     if place == 'debug':
         print('\n_deb_driver starting_')
         myoptions = ChromeOptions()

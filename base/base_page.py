@@ -79,7 +79,7 @@ class BasePage:
             return False
 
     def is_loading(self):
-        while self.is_present(self.LOADER, 0.1):
+        while self.is_present(self.LOADER, 0.1): # and self.is_visible(self.LOADER, 0.1):
             print(f'loader {self.LOADER} is present: waiting to dissapear .... ')
             self.is_invisible(self.LOADER)
         else:

@@ -12,7 +12,7 @@ class ItemToWishList(BasePage):
 
     def add_item_to_wish_list(self):
         el = self.is_clickable(ItemPageLocators.ADD_TO_WISH_LIST)
-        self.is_loading()
+        # self.is_loading()
         return el
 
     @property

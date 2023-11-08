@@ -15,5 +15,5 @@ class ItemDetailsPage(Page):
 
     def add_to_cart(self):
         el = self.is_clickable(self.ADD_TO_CART)
-        self.is_loading()
+        # self.is_loading()
         return el
