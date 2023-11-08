@@ -21,7 +21,7 @@ def test_edit_first_and_last_name(driver):
 
 def test_change_email(driver, random_first_name, random_last_name, random_email, random_password, random_new_email):
     page = RegistrationPage(driver)
-    page.create_account(page, random_first_name, random_last_name, random_email, random_password)
+    page.create_account(random_first_name, random_last_name, random_email, random_password)
     # page = LoginPage(driver)
     # page.sign_in(page)
     page = MyAccountPage(driver)
@@ -37,7 +37,7 @@ def test_change_email(driver, random_first_name, random_last_name, random_email,
 
 def test_change_password(driver, random_first_name, random_last_name, random_email, random_password, random_new_password):
     page = RegistrationPage(driver)
-    page.create_account(page, random_first_name, random_last_name, random_email, random_password)
+    page.create_account(random_first_name, random_last_name, random_email, random_password)
     # page = LoginPage(driver)
     # page.sign_in(page)
     page = MyAccountPage(driver)
