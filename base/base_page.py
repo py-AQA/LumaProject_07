@@ -10,15 +10,16 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 class BasePage:
     URL = "about:blank"
-    TIMEOUT = 10
+    TIMEOUT = 15
     LOADER = (By.CSS_SELECTOR, "div.loader")
 
-    def __init__(self, driver, url=URL, open=True):
+    def __init__(self, driver, url=URL, open_url=True):
         self.driver = driver
-        if open:
+        if open_url:
             self.current_url = url
 
     def open(self):
+        raise AssertionError("Еще нельзя удалить!")
         self.driver.delete_cookie("mage-messages")
         self.driver.get(self.current_url)
 
