@@ -4,8 +4,8 @@ from data.locators import LoginPageLocators
 
 
 class LoginPage(BasePage):
-    def __init__(self, driver, url=LoginPageLocators.URL):
-        super().__init__(driver, url)
+    def __init__(self, driver, url=LoginPageLocators.URL, open=True):
+        super().__init__(driver, url, open)
 
     def email(self) -> WebElement:
         return self.is_visible(LoginPageLocators.EMAIL)
@@ -20,7 +20,6 @@ class LoginPage(BasePage):
         return self.is_clickable(LoginPageLocators.BUTTON_FORGOT_PASSWORD)
 
     def sign_in(self):
-        self.open()
         self.email().send_keys('sve3363@gmail.com')
         self.password().send_keys('Zaqxsw100')
         self.button_sign_in().click()
