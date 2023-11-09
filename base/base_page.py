@@ -18,10 +18,10 @@ class BasePage:
         if open_url:
             self.current_url = url
 
-    def open(self):
-        raise AssertionError("Еще нельзя удалить!")
-        self.driver.delete_cookie("mage-messages")
-        self.driver.get(self.current_url)
+    # def open(self):
+    #     raise AssertionError("Еще нельзя удалить!")
+    #     self.driver.delete_cookie("mage-messages")
+    #     self.driver.get(self.current_url)
 
     def header(self) -> WebElement:
         return self.is_visible(BasePageLocators.HEADER)
