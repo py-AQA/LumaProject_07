@@ -27,14 +27,14 @@ class BasePage:
         return self.is_visible(BasePageLocators.HEADER)
 
     def is_visible(self, locator: (str, str), timeout: int = TIMEOUT) -> WebElement:
-        self.is_loading()
+        # self.is_loading()
         try:
             return wait(self.driver, timeout).until(EC.visibility_of_element_located(locator))
         except TimeoutException:
             raise AssertionError(f"{timeout}s wait to be visible of {locator}")
 
     def is_clickable(self, locator: tuple[str, str], timeout: int = TIMEOUT) -> WebElement:
-        self.is_loading()
+        # self.is_loading()
         try:
             return wait(self.driver, timeout).until(EC.element_to_be_clickable(locator))
         except TimeoutException:
