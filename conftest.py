@@ -142,7 +142,7 @@ def driver(request, browser, place, options):
             driver = webdriver.Edge(options=options)
         else:
             driver = webdriver.Remote(command_executor=GRID_URL, options=options)
-    request.cls.x = driver
+    # request.cls.x = driver
     yield driver
     driver.quit()
 
