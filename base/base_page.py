@@ -27,12 +27,14 @@ class BasePage:
         return self.is_visible(BasePageLocators.HEADER)
 
     def is_visible(self, locator: (str, str), timeout: int = TIMEOUT) -> WebElement:
+        self.is_loading()
         try:
             return wait(self.driver, timeout).until(EC.visibility_of_element_located(locator))
         except TimeoutException:
             raise AssertionError(f"{timeout}s wait to be visible of {locator}")
 
     def is_clickable(self, locator: tuple[str, str], timeout: int = TIMEOUT) -> WebElement:
+        self.is_loading()
         try:
             return wait(self.driver, timeout).until(EC.element_to_be_clickable(locator))
         except TimeoutException:
@@ -80,8 +82,13 @@ class BasePage:
             return False
 
     def is_loading(self):
-        while self.is_present(self.LOADER, 0.1): # and self.is_visible(self.LOADER, 0.1):
-            print(f'loader {self.LOADER} is present: waiting to dissapear .... ')
-            self.is_invisible(self.LOADER)
-        else:
-            print(f'loader {self.LOADER} is NOT present: gtg .... ')
+        while self.driver.execute_script("return document.querySelector('div.loader:not(.hidden)') != null;"):
+            sleep(0.05)
+
+
+        # wait(self.driver, timeout).until("false" == self.driver.execute_script(js))
+        # while self.is_present(self.LOADER, 0.1): # and self.is_visible(self.LOADER, 0.1):
+        #     print(f'loader {self.LOADER} is present: waiting to dissapear .... ')
+        #     self.is_invisible(self.LOADER)
+        # else:
+        #     print(f'loader {self.LOADER} is NOT present: gtg .... ')
