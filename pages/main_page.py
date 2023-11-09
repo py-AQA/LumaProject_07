@@ -82,8 +82,8 @@ class MainPage(BasePage):
         self.is_clickable(MainPageLocators.ADD_TO_CART_MONTANA_JACKET_BUTTON).click()
 
     def select_blue_28_portia_capri_pants(self):
-        self.is_clickable(MainPageLocators.PORTIA_CAPRI_PANTS_BLUE_COLOR_BUTTON).click()
         self.is_clickable(MainPageLocators.PORTIA_CAPRI_PANTS_SIZE_28_BUTTON).click()
+        self.is_clickable(MainPageLocators.PORTIA_CAPRI_PANTS_BLUE_COLOR_BUTTON).click()
         self.hold_mouse_on_element(MainPageLocators.LINK_PORTIA_CAPRI_PANTS)
         self.is_clickable(MainPageLocators.ADD_TO_CART_PORTIA_CAPRI_PANTS_BUTTON).click()
 
