@@ -119,7 +119,6 @@ def driver(request, browser, place, options):
         original_window = driver.current_window_handle
         driver.switch_to.new_window('tab')
 
-        request.cls.driver = driver
         yield
 
         driver.close()
@@ -143,7 +142,7 @@ def driver(request, browser, place, options):
             driver = webdriver.Edge(options=options)
         else:
             driver = webdriver.Remote(command_executor=GRID_URL, options=options)
-
+    request.cls.x = driver
     yield driver
     driver.quit()
 
@@ -173,11 +172,6 @@ def random_password():
 
 
 # todo стоит ли передавать новые данные фикстурами
-# @pytest.fixture
-# def wait_1(driver):
-#     wait_our = WebDriverWait(driver, timeout=15)
-#     return wait_our
-
 
 @pytest.fixture
 def random_new_email():
@@ -226,7 +220,7 @@ def random_ru_zip_code():
     fake_zip_code = f'19{randint(1111,9999)}'
     return fake_zip_code
 
-# временно , возможно нужно поменять
+# временно, возможно нужно поменять
 @pytest.fixture()
 def random_order_id():
     fake_order_id = randint(111111111, 999999999)
