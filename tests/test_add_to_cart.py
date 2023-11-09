@@ -37,12 +37,13 @@ class TestNegativeQuantity:
         assert page.error_quantity_msg().text == 'Please enter a quantity greater than 0.'
 
     def test_zero_quantity(self, driver):
+        # todo sometimes fails -timeout wait gor qty- to check for loaders later
         page = MainPage(driver, 'https://magento.softwaretestingboard.com/sprite-yoga-companion-kit.html')
         page.add_zero_items_to_cart()
         assert page.error_quantity_msg().text == 'Please enter a quantity greater than 0.'
 
     def test_add_more_than_maximum_items(self, driver):
-        # todo sometimes fails - to check for loaders later
+        # todo sometimes fails -timeout wait gor qty- to check for loaders later
         page = MainPage(driver, 'https://magento.softwaretestingboard.com/sprite-yoga-companion-kit.html')
         page.add_more_than_maximum_items_to_cart()
         assert page.error_quantity_msg().text == 'The maximum you may purchase is 10000.'
@@ -56,11 +57,13 @@ class TestNegativeQuantity:
 class TestAddToCartIconCounter:
 
     def test_add_one_item(self, driver):
+        # todo sometimes fails -intercepted- to check for loaders later
         page = MainPage(driver)
         page.add_portia_capri_28_blue_color_to_cart()
         assert page.cart_counter().text == '1'
 
     def test_add_five_items(self, driver):
+        # todo sometimes fails -intercepted- to check for loaders later
         page = MainPage(driver, 'https://magento.softwaretestingboard.com/sprite-yoga-companion-kit.html')
         page.add_yoga_kit_from_gear_fitness_to_cart(5)
         assert page.cart_counter().text == '5'

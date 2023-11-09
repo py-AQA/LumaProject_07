@@ -10,21 +10,18 @@ from pages.create_account import CreateAccountPage
 
 
 class TestNow(FakeData):
+    def test_create_account_link(self, driver):
+        # todo узнать какую страницу сайта выбрать для проверки
+        # todo fails with assert page.url == CreateAccountPage.URL for .../account/create/ .../account/login/referer...
+        page = HomePage(driver)
+        page.create_account.click()
+        assert page.current_url == CreateAccountPage.URL
 
     def test_sign_in_link(self, driver):
         # todo узнать какую страницу сайта выбрать для проверки
         page = HomePage(driver)
         page.sign_in.click()
         assert page.current_url.startswith(SignInPage.URL)
-
-    def test_create_account_link(self, driver):
-        # todo узнать какую страницу сайта выбрать для проверки
-        # todo fails with assert page.url == CreateAccountPage.URL for .../account/create/ .../account/login/referer...
-        page = HomePage(driver)
-        sleep(5)
-        page.create_account.click()
-        sleep(5)
-        assert page.current_url == CreateAccountPage.URL
 
     def test_logo_link(self, driver):
         # todo узнать какую страницу сайта выбрать для клика по логотипу для проверки
