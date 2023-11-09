@@ -1,5 +1,6 @@
 from time import sleep
 
+import pytest
 from selenium.webdriver.common.by import By
 from base.base_page import BasePage
 
@@ -7,12 +8,12 @@ from base.base_page import BasePage
 class Demo(BasePage):
     LOCATOR = (By.CSS_SELECTOR, "div.demo")
     TEXT = ("This is a demo store to test your test automaiton scripts. "
-                 "No orders will be fulfilled. If you are facing any issue, "
-                 "email us at hello@softwaretestingboard.com.")
+            "No orders will be fulfilled. If you are facing any issue, "
+            "email us at hello@softwaretestingboard.com.")
     BACKGROUND_COLOR = "rgba(255, 1, 1, 1)"
 
     def __init__(self, driver):
-        super().__init__(driver)
+        super().__init__(driver, '', open_url=False)
 
     @property
     def demo(self):
