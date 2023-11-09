@@ -1,6 +1,7 @@
+import pytest
 from selenium.webdriver.common.by import By
 from base.base_page import BasePage
-from pages.abstract import Page
+from pages.abstract import Page, Demo
 
 
 class Link(Page):
@@ -73,8 +74,7 @@ class HomePage(Page):
     def __init__(self, driver, url=URL, open_url=True):
         super().__init__(driver, url)
         # self.footer = Footer(driver)
-
-
+        self.demo = Demo(driver)
 
     @property
     def sign_in(self):
@@ -88,6 +88,3 @@ class HomePage(Page):
     @property
     def logo(self):
         return self.is_visible(self.LOGO)
-
-
-
